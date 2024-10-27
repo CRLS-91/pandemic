@@ -1,1 +1,48 @@
-<p>registro works!</p>
+<div class="register">
+  <form class="custom-form">
+    <h1>Registrarse</h1>
+
+    <!-- Campo de Nombre de Usuario -->
+    <input
+     
+      [(ngModel)]="username"
+      name="username"
+      placeholder="Nombre de usuario"
+      required="required"
+    />
+   
+
+    <!-- Campo de Email -->
+    <input
+      
+      [(ngModel)]="email"
+      name="email"
+      placeholder="Email"
+      required="required"
+    />
+
+
+    <!-- Campo de Contraseña -->
+    <input
+   
+      [(ngModel)]="password"
+      name="password"
+      placeholder="Contraseña"
+      required="required"
+    />
+  
+
+    <!-- Campo de Confirmación de Contraseña -->
+    <input
+      
+      [(ngModel)]="confirmPassword"
+      name="confirmPassword"
+      placeholder="Confirmar Contraseña"
+      
+    />
+    
+
+    <!-- Botón de Registro -->
+    <button (click)="vamosLogin()" >Registrarse</button>
+  </form>
+</div>
