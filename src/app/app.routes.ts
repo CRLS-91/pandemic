@@ -7,6 +7,7 @@ InicioComponent
 export const routes: Routes = [
 {path:'',component:InicioComponent},
 {path:'login', component: LoginComponent},
+{path:'perfil', component: PerfilusuarioComponent},
 {path:'registro', component: RegistroComponent},
 
 ];
