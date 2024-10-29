@@ -1,12 +1,23 @@
 import { Component } from '@angular/core';
-
+import { inject } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 @Component({
-  selector: 'app-perfilusuario',
+  selector: 'app-perfil-usuario',
   standalone: true,
   imports: [],
   templateUrl: './perfilusuario.component.html',
   styleUrl: './perfilusuario.component.css'
 })
-export class PerfilusuarioComponent {
+export class PerfilUsuarioComponent {
+
+  private _formBuilder = inject(FormBuilder);
+
+  firstFormGroup = this._formBuilder.group({
+    firstCtrl: ['', Validators.required],
+  });
+  secondFormGroup = this._formBuilder.group({
+    secondCtrl: ['', Validators.required],
+  });
+  isLinear = false;
 
 }
