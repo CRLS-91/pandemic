@@ -1,0 +1,8 @@
+.texto{
+
+    background: rgb(251,208,63);
+    background: radial-gradient(circle, rgba(251,208,63,1) 0%, rgba(252,70,70,1) 100%);
+    font-family:sans-serif;
+    font-size:20px;
+    
+}

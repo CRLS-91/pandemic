@@ -1,8 +1,10 @@
 
 .todo{
-    background-image: url(/images/fondoinicio.png);
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url(/images/pandemic.png);
+    background-position:center;
+    background-size: cover;
+    height: 734px;
+    width: 1181px;
     text-align: center; 
     display: flex;
 	align-items: center;
@@ -10,20 +12,12 @@
     flex-wrap: wrap;
 }
 
-.jugar{
-    margin-top: 100px;
+.entrar{
+    margin-top: 700px;
     margin-bottom: 100px;
    
 }
-.reglas{
-    margin-bottom: 100px;
-}
-.autores{
-    margin-bottom: 100px;
-}
-.salir{
-    margin-bottom: 100px;
-}
+
 button{
     height: 50px;
     width: 150px;
