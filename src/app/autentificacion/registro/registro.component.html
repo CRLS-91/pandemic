@@ -1,9 +1,9 @@
 <div class="register">
-  <form class="custom-form">
+  <form [formGroup]="miFormulario" (ngSubmit)="enviar()" class="custom-form">
     <h1>Registrarse</h1>
 
     <!-- Campo de Nombre de Usuario -->
-    <input
+    <input formControlName="nombre"
      
       [(ngModel)]="username"
       name="username"
@@ -13,7 +13,7 @@
    
 
     <!-- Campo de Email -->
-    <input
+    <input formControlName="email"
       
       [(ngModel)]="email"
       name="email"
@@ -23,7 +23,7 @@
 
 
     <!-- Campo de Contraseña -->
-    <input
+    <input 
    
       [(ngModel)]="password"
       name="password"
@@ -43,6 +43,6 @@
     
 
     <!-- Botón de Registro -->
-    <button (click)="vamosLogin()" >Registrarse</button>
+    <button type="submit" (click)="vamosLogin()" >Registrarse</button>
   </form>
 </div>

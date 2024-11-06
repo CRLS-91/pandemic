@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms'; // Importa FormsModule
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';  // Import CommonModule
 
@@ -7,11 +7,25 @@ import { CommonModule } from '@angular/common';  // Import CommonModule
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,ReactiveFormsModule],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
 export class RegistroComponent {
+
+  miFormulario= new FormGroup({
+    nombre : new FormControl('', [Validators.required]),
+    emial : new FormControl('', [Validators.required, Validators.email]),
+    mensaje : new FormControl('', [Validators.required])
+});
+
+  enviar(){
+    if (this.miFormulario.valid){
+      console.log(this.miFormulario.valid)
+    }else{
+      console.log("alguno de los datos es incorrecto");
+    }
+  }
 
   irALogin() {
     throw new Error('Method not implemented.');
