@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
+
   constructor(private router: Router) {} // Inyección de Router
 
   iniciar() {

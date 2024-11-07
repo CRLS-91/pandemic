@@ -1,17 +1,13 @@
 import { Routes } from '@angular/router';
-import { InicioComponent } from './autentificacion/inicio/inicio.component';
-
-import { LoginComponent } from './autentificacion/login/login.component';
-
+import { LoginComponent } from './auth/login/login.component';
+import { InicioComponent } from './auth/inicio/inicio.component';
 
 
-
-
-InicioComponent
 export const routes: Routes = [
-{path:'',component:InicioComponent},
-{path:'login', component: LoginComponent},
 
+
+{path:'',loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
 {path:'auth',loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)},
-
+{path:'perfil',loadChildren: () => import('./perfil/perfil.module').then(m => m.PerfilModule)},
+{path:'menu',loadChildren: () => import('./menu/menu.module').then(m => m.MenuModule)},
 ];
