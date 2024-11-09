@@ -1,0 +1,22 @@
+.neon-image {
+    width: 73%; /* Ajusta el tamaño según sea necesario */
+    filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.8)) 
+            drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) 
+            drop-shadow(0 0 30px rgba(170,255,0)); /* Ajusta el color y tamaño del neón */
+    transition: 0.3s ease;
+  }
+
+  .neon-image:hover {
+    filter: drop-shadow(0 0 20px rgb(0, 255, 21)) 
+            drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) 
+            drop-shadow(0 0 60px rgba(0, 255, 170, 0.6)); /* Efecto de brillo más intenso al pasar el ratón */
+  }
+
+  body {
+    background-color: #000; /* Fondo oscuro para resaltar el neón */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }

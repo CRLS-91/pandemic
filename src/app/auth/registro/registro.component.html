@@ -1,50 +1,45 @@
-
 <div class="register">
-    <form [formGroup]="miFormulario" (ngSubmit)="enviar()" class="custom-form">
-      <h1>Registrarse</h1>
-  
-      <!-- Campo de Nombre de Usuario -->
-      <input formControlName="nombre"
-       
-        [(ngModel)]="username"
-        name="username"
-        placeholder="Nombre de usuario"
-        required="required"
-      />
-     
-  
-      <!-- Campo de Email -->
-      <input formControlName="email"
-        
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-  
-  
-      <!-- Campo de Contraseña -->
-      <input 
-     
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Contraseña"
-        required="required"
-      />
-    
-  
-      <!-- Campo de Confirmación de Contraseña -->
-      <input
-        
-        [(ngModel)]="confirmPassword"
-        name="confirmPassword"
-        placeholder="Confirmar Contraseña"
-        
-      />
-      
-  
-      <!-- Botón de Registro -->
-      <button type="submit" (click)="vamosLogin()" >Registrarse</button>
-    </form>
-  </div>
-  
+  <form [formGroup]="miFormulario" (ngSubmit)="enviar()" class="custom-form">
+    <h1>Registrarse</h1>
+
+    <!-- Campo de Nombre de Usuario -->
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="nombre" placeholder="Nombre de usuario" />
+      <div *ngIf="miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched">
+        <small *ngIf="miFormulario.get('nombre')?.errors?.['required']">El nombre es obligatorio (3-30 caracteres).</small>
+        <small *ngIf="miFormulario.get('nombre')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
+        <small *ngIf="miFormulario.get('nombre')?.errors?.['maxlength']">El nombre no puede tener más de 30 caracteres.</small>
+      </div>
+    </mat-form-field>
+
+    <!-- Campo de Email -->
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="email" placeholder="Email" />
+      <div *ngIf="miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched">
+        <small *ngIf="miFormulario.get('email')?.errors?.['required']">El correo es obligatorio.</small>
+        <small *ngIf="miFormulario.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small>
+      </div>
+    </mat-form-field>
+
+    <!-- Campo de Contraseña -->
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="password" type="password" placeholder="Contraseña" />
+      <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
+        <small *ngIf="miFormulario.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+        <small *ngIf="miFormulario.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+      </div>
+    </mat-form-field>
+
+    <!-- Campo de Confirmación de Contraseña -->
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="confirmPassword" type="password" placeholder="Confirmar Contraseña" />
+      <div *ngIf="miFormulario.hasError('passwordsMismatch') && miFormulario.get('confirmPassword')?.touched">
+        <small>Las contraseñas no coinciden.</small>
+      </div>
+    </mat-form-field>
+
+    <!-- Botón de Registro -->
+    <button mat-raised-button color="primary" type="submit" >Registrarse</button>
+    <button (click)="irALogin()"></button>
+  </form>
+</div>
