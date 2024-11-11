@@ -14,7 +14,8 @@
   <svg class="map-connections" [attr.width]="containerWidth" [attr.height]="containerHeight">
     <ng-container *ngFor="let city of cities">
       <ng-container *ngFor="let connection of city.connections">
-        <line [attr.x1]="city.x" 
+        <line *ngIf="getCityPosition(connection)" 
+              [attr.x1]="city.x" 
               [attr.y1]="city.y"
               [attr.x2]="getCityPosition(connection)?.x" 
               [attr.y2]="getCityPosition(connection)?.y"

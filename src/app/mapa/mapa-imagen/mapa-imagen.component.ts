@@ -16,6 +16,9 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule aquí
 export class MapaImagenComponent implements OnInit, AfterViewInit {
   @ViewChild('mapContainer') mapContainer!: ElementRef;
 
+
+  
+
   getCityPosition(cityName: string) {
     const city = this.cities.find(c => c.name === cityName);
     return city ? { x: city.x, y: city.y } : null;
@@ -46,6 +49,10 @@ export class MapaImagenComponent implements OnInit, AfterViewInit {
     {name: 'Santiago de Chile',group: 3 , x: 430 , y: 620 , connections: ['Lima']},
     {name: 'Buenos Aires', group: 0, x: 453, y: 670, connections: ['Sao Paulo', 'Bogota'] },
     {name: 'Sao Paulo', group: 0, x: 520, y: 570, connections: ['Bogota', 'Buenos Aires', 'Lagos', 'Madrid'] },
+    {name: 'Kinsasa', group: 3, x: 770, y: 540, connections: ['Lagos', 'Jartum', 'Johannesburgo'] },
+    {name: 'Lagos', group: 3, x: 710, y: 450, connections: ['Sao Paulo', 'Kinshasa', 'Jartum']},
+    {name: 'Jartum', group: 3, x: 815, y: 815, connections: ['El Cairo', 'Lagos', 'Kinsasa', 'Johannesburgo']},
+    {name: 'Johannesburgo', group: 3, x: 815, y: 630, connections: ['Kinshasa', 'Jartum']},
 
     
     
@@ -75,10 +82,3 @@ export class MapaImagenComponent implements OnInit, AfterViewInit {
   }
 }
 
-interface City {
-  name: string;
-  group: number;
-  x: number;
-  y: number;
-  connections: string[];
-}

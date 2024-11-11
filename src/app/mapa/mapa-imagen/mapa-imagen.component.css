@@ -15,7 +15,7 @@
   }
 
   body {
-    background-color: white; /* Fondo oscuro para resaltar el neón */
+    background-color: black; /* Fondo oscuro para resaltar el neón */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,5 +51,9 @@
     top: 0;
     left: 0;
     pointer-events: none;
-    background-color: red;
+    stroke: white;
+    stroke-width: 8; /* Ajusta el grosor de las líneas */
+    /*opacity: 0.7; Puedes hacer las líneas ligeramente transparentes si prefieres */
+  
   }
+  
