@@ -1,5 +1,25 @@
+<div>
+  <body>
+    <img src="images/mapa.png" alt="Imagen Irregular" class="neon-image">
+  </body>
 
-<body>
-  <img src="images/mapa.png" alt="Imagen Irregular" class="neon-image">
-</body>
+  <!-- Mostrar cada ciudad en su posición escalada -->
+  <div *ngFor="let city of cities" 
+       [ngStyle]="{ left: city.x + 'px', top: city.y + 'px' }" 
+       class="city-marker">
+    {{ city.name }}
+  </div>
 
+  <!-- Opcional: Línea para mostrar conexiones entre ciudades -->
+  <svg class="map-connections" [attr.width]="containerWidth" [attr.height]="containerHeight">
+    <ng-container *ngFor="let city of cities">
+      <ng-container *ngFor="let connection of city.connections">
+        <line [attr.x1]="city.x" 
+              [attr.y1]="city.y"
+              [attr.x2]="getCityPosition(connection)?.x" 
+              [attr.y2]="getCityPosition(connection)?.y"
+              stroke="black" stroke-width="1"/>
+      </ng-container>
+    </ng-container>
+  </svg>
+</div>
