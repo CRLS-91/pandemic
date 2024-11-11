@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button'; // Importa MatButton
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,MatFormFieldModule,MatInputModule],
+  imports: [CommonModule, ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButtonModule],
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })
