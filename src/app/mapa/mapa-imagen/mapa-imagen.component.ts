@@ -53,12 +53,31 @@ export class MapaImagenComponent implements OnInit, AfterViewInit {
     {name: 'Lagos', group: 3, x: 710, y: 450, connections: ['Sao Paulo', 'Kinshasa', 'Jartum']},
     {name: 'Jartum', group: 3, x: 815, y: 815, connections: ['El Cairo', 'Lagos', 'Kinsasa', 'Johannesburgo']},
     {name: 'Johannesburgo', group: 3, x: 815, y: 630, connections: ['Kinshasa', 'Jartum']},
-
-    
-    
-
-
-
+    {name: 'Argel', group: 2, x: 730, y: 330, connections: ['Madrid', 'Paris', 'El Cairo', 'Estambul']},
+    {name: 'El Cairo', group: 2, x: 820, y: 350, connections: ['Argel', 'Bagdad', 'Estambul']},
+    {name: 'Riad', group: 2, x: 895, y: 385, connections: ['Argel', 'Bagdad', 'Karachi', 'Moscu', 'El Cairo']},
+    {name: 'Estambul', group: 2, x: 830, y: 294, connections: ['Argel', 'Bagdad', 'El Cairo']},
+    {name: 'Bagdad', group: 2, x: 880, y: 320, connections: ['Estambul', 'Karachi', 'El Cairo', 'Riad']},
+    {name: 'Moscu', group: 2, x: 880, y: 320, connections: ['Estambul', 'Teheran', 'San Petersburgo']},
+    {name: 'Teheran', group: 2, x: 880, y: 320, connections: ['Moscu', 'Bagdad', 'Karachi', 'Nueva Delhi']},
+    {name: 'Karachi', group: 2, x: 880, y: 320, connections: ['Teheran', 'Bagdad', 'Riad', 'Nueva Delhi', 'Bombay']},
+    {name: 'Bombay', group: 2, x: 880, y: 320, connections: ['Madras', 'Karachi', 'Nueva Delhi']},
+    {name: 'Nueva Delhi', group: 2, x: 880, y: 320, connections: ['Madras', 'Karachi', 'Teheran', 'Bombay','Calcuta']},
+    {name: 'Calcuta', group: 2, x: 880, y: 320, connections: ['Nueva Delhi', 'Madras', 'Bangkok', 'Hong Kong']},
+    {name: 'Madras', group: 2, x: 880, y: 320, connections: ['Nueva Delhi', 'Bombay', 'Bangkok', ' Yakarta']},
+    {name: 'Bombay', group: 2, x: 880, y: 320, connections: ['Nueva Delhi', 'Karachi', 'Madras']},
+    {name: 'Yakarta', group: 2, x: 880, y: 320, connections: ['Madras', 'Bangkok', 'Ho Chi Minh', 'Sidney']},
+    {name: 'Bangkok', group: 2, x: 880, y: 320, connections: ['Madras', 'Calcuta', 'Hong Kong', 'Ho Chi Minh', 'Yakarta']},
+    {name: 'Hong Kong', group: 2, x: 880, y: 320, connections: ['Ho Chi Minh', 'Bangkok', 'Shanghai', 'Manila', 'Taipei']},
+    {name: 'Shanghai', group: 2, x: 880, y: 320, connections: ['Pekin', 'Seul', 'Hong Kong', 'Tokio','Taipei']},
+    {name: 'Pekin', group: 2, x: 880, y: 320, connections: ['Seul', 'Shanghai', 'Tokio']},
+    {name: 'Seul', group: 2, x: 880, y: 320, connections: ['Pekin', 'Tokio']},
+    {name: 'Tokio', group: 2, x: 880, y: 320, connections: ['Osaka', 'San Francisco', 'Seul', 'Shanghai']},
+    {name: 'Osaka', group: 2, x: 880, y: 320, connections: ['Tokio', 'Taipei']},
+    {name: 'Taipei', group: 2, x: 880, y: 320, connections: ['Osaka', 'Hong Kong', 'Shanghai', 'Manila']},
+    {name: 'Ho Chi Minh', group: 2, x: 880, y: 320, connections: ['Yakarta', 'Bangkok', 'Hong Kong', 'Manila']},
+    {name: 'Manila', group: 2, x: 880, y: 320, connections: ['San Francisco', 'Hong Ho Chi Minh', 'Taipei', 'Hong Kong', 'Sidney']},
+    {name: 'Sidney', group: 2, x: 880, y: 320, connections: ['Los Angeles', 'Yakarta', 'Manila']}, 
     
     // ... (agrega las demás ciudades aquí siguiendo el mismo formato)
   ];
