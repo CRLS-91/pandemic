@@ -13,7 +13,6 @@
             drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) 
             drop-shadow(0 0 60px rgba(0, 255, 170, 0.6)); /* Efecto de brillo más intenso al pasar el ratón */
   }
-
   body {
     background-color: black; /* Fondo oscuro para resaltar el neón */
     display: flex;
@@ -22,6 +21,7 @@
     height: 100vh;
     margin: 0;
   }
+ 
 
   .map-container {
     position: relative;
@@ -47,12 +47,12 @@
   
   /* Opcional: Estilo para las líneas de conexión */
   .map-connections {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     pointer-events: none;
     stroke: white;
-    stroke-width: 8; /* Ajusta el grosor de las líneas */
+    stroke-width: 30; /* Ajusta el grosor de las líneas */
     /*opacity: 0.7; Puedes hacer las líneas ligeramente transparentes si prefieres */
   
   }

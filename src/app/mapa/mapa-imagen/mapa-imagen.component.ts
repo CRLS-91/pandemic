@@ -7,7 +7,8 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule aquí
   standalone: true,
   imports: [CommonModule],
   templateUrl: './mapa-imagen.component.html',
-  styleUrl: './mapa-imagen.component.css'
+  styleUrls: ['./mapa-imagen.component.css']
+
 })
 
 
@@ -32,55 +33,47 @@ export class MapaImagenComponent implements OnInit, AfterViewInit {
 
   // Datos de las ciudades (nombre, grupo, coordenadas, y conexiones)
   cities: { name: string; group: number; x: number; y: number; connections: string[] }[] = [
-    {name: 'San Francisco', group: 0, x: 600, y: 315, connections: ['Chicago', 'Los Angeles', 'Manila', 'Tokio'] },
-    {name: 'Chicago', group: 0, x: 300, y: 280, connections: ['San Francisco', 'Montreal', 'Atlanta', 'Mexico DF', 'Los Angeles'] },
-    {name: 'Atlanta', group: 0, x: 320, y: 320, connections: ['Chicago', 'Miami', 'Washington'] },
-    {name: 'Montreal', group: 0, x: 350, y: 280, connections: ['Chicago', 'Nueva York', 'Washington'] },
-    {name: 'Nueva York', group: 0, x: 380, y: 290, connections: ['Montreal', 'Washington', 'Londres', 'Madrid'] },
-    {name: 'Washington', group: 0, x: 360, y: 330, connections: ['Montreal','Nueva York','Atlanta','Miami']},
-    {name: 'Londres',group: 0, x: 700, y: 230, connections: ['Nueva York','Madrid','Paris','Essen']},
-    {name: 'Madrid', group: 0, x: 910, y: 325, connections: ['Nueva York','Londres','Paris','Sao Paulo','Argel']},
-    {name: 'Paris',group: 0 , x: 727 , y: 250 , connections: ['Madrid','Londres','Essen','Argel','Milan']},
-    {name: 'Essen',group: 0 , x: 755 , y: 190 , connections: ['Londres','Paris','San Petersburgo','Milan']},
-    {name: 'Milan',group: 0 , x: 755 , y: 235 , connections: ['Essen','Paris','Estambul']},
-    {name: 'Bogota',group: 3 , x: 400 , y: 460 , connections: ['Miami','Mexico DF','Lima', 'Sao Paulo', 'Buenos Aires']},
-    {name: 'Lima',group: 3 , x: 395 , y: 520 , connections: ['Mexico DF','Bogota','Santiago de Chile']},
-    {name: 'Miami',group: 3 , x: 380 , y: 360 , connections: ['Washington','Atlanta','Mexico DF','Bogota']},
-    {name: 'Santiago de Chile',group: 3 , x: 430 , y: 620 , connections: ['Lima']},
-    {name: 'Buenos Aires', group: 0, x: 453, y: 670, connections: ['Sao Paulo', 'Bogota'] },
-    {name: 'Sao Paulo', group: 0, x: 520, y: 570, connections: ['Bogota', 'Buenos Aires', 'Lagos', 'Madrid'] },
-    {name: 'Kinsasa', group: 3, x: 770, y: 540, connections: ['Lagos', 'Jartum', 'Johannesburgo'] },
-    {name: 'Lagos', group: 3, x: 710, y: 450, connections: ['Sao Paulo', 'Kinshasa', 'Jartum']},
-    {name: 'Jartum', group: 3, x: 815, y: 815, connections: ['El Cairo', 'Lagos', 'Kinsasa', 'Johannesburgo']},
-    {name: 'Johannesburgo', group: 3, x: 815, y: 630, connections: ['Kinshasa', 'Jartum']},
-    {name: 'Argel', group: 2, x: 730, y: 330, connections: ['Madrid', 'Paris', 'El Cairo', 'Estambul']},
-    {name: 'El Cairo', group: 2, x: 820, y: 350, connections: ['Argel', 'Bagdad', 'Estambul']},
-    {name: 'Riad', group: 2, x: 895, y: 385, connections: ['Argel', 'Bagdad', 'Karachi', 'Moscu', 'El Cairo']},
-    {name: 'Estambul', group: 2, x: 830, y: 294, connections: ['Argel', 'Bagdad', 'El Cairo']},
-    {name: 'Bagdad', group: 2, x: 880, y: 320, connections: ['Estambul', 'Karachi', 'El Cairo', 'Riad']},
-    {name: 'Moscu', group: 2, x: 880, y: 320, connections: ['Estambul', 'Teheran', 'San Petersburgo']},
-    {name: 'Teheran', group: 2, x: 880, y: 320, connections: ['Moscu', 'Bagdad', 'Karachi', 'Nueva Delhi']},
-    {name: 'Karachi', group: 2, x: 880, y: 320, connections: ['Teheran', 'Bagdad', 'Riad', 'Nueva Delhi', 'Bombay']},
-    {name: 'Bombay', group: 2, x: 880, y: 320, connections: ['Madras', 'Karachi', 'Nueva Delhi']},
-    {name: 'Nueva Delhi', group: 2, x: 880, y: 320, connections: ['Madras', 'Karachi', 'Teheran', 'Bombay','Calcuta']},
-    {name: 'Calcuta', group: 2, x: 880, y: 320, connections: ['Nueva Delhi', 'Madras', 'Bangkok', 'Hong Kong']},
-    {name: 'Madras', group: 2, x: 880, y: 320, connections: ['Nueva Delhi', 'Bombay', 'Bangkok', ' Yakarta']},
-    {name: 'Bombay', group: 2, x: 880, y: 320, connections: ['Nueva Delhi', 'Karachi', 'Madras']},
-    {name: 'Yakarta', group: 2, x: 880, y: 320, connections: ['Madras', 'Bangkok', 'Ho Chi Minh', 'Sidney']},
-    {name: 'Bangkok', group: 2, x: 880, y: 320, connections: ['Madras', 'Calcuta', 'Hong Kong', 'Ho Chi Minh', 'Yakarta']},
-    {name: 'Hong Kong', group: 2, x: 880, y: 320, connections: ['Ho Chi Minh', 'Bangkok', 'Shanghai', 'Manila', 'Taipei']},
-    {name: 'Shanghai', group: 2, x: 880, y: 320, connections: ['Pekin', 'Seul', 'Hong Kong', 'Tokio','Taipei']},
-    {name: 'Pekin', group: 2, x: 880, y: 320, connections: ['Seul', 'Shanghai', 'Tokio']},
-    {name: 'Seul', group: 2, x: 880, y: 320, connections: ['Pekin', 'Tokio']},
-    {name: 'Tokio', group: 2, x: 880, y: 320, connections: ['Osaka', 'San Francisco', 'Seul', 'Shanghai']},
-    {name: 'Osaka', group: 2, x: 880, y: 320, connections: ['Tokio', 'Taipei']},
-    {name: 'Taipei', group: 2, x: 880, y: 320, connections: ['Osaka', 'Hong Kong', 'Shanghai', 'Manila']},
-    {name: 'Ho Chi Minh', group: 2, x: 880, y: 320, connections: ['Yakarta', 'Bangkok', 'Hong Kong', 'Manila']},
-    {name: 'Manila', group: 2, x: 880, y: 320, connections: ['San Francisco', 'Hong Ho Chi Minh', 'Taipei', 'Hong Kong', 'Sidney']},
-    {name: 'Sidney', group: 2, x: 880, y: 320, connections: ['Los Angeles', 'Yakarta', 'Manila']}, 
+    { name: 'San Francisco', group: 0, x: 440, y: 310, connections: ['Chicago', 'Los Angeles', 'Manila', 'Tokio'] },
+    { name: 'Chicago', group: 0, x: 580, y: 310, connections: ['San Francisco', 'Montreal', 'Atlanta', 'Mexico DF', 'Los Angeles'] },
+    { name: 'Atlanta', group: 0, x: 580, y: 330, connections: ['Chicago', 'Miami', 'Washington'] },
+    { name: 'Montreal', group: 0, x: 630, y: 270, connections: ['Chicago', 'Nueva York', 'Washington'] },
+    { name: 'Nueva York', group: 0, x: 640, y: 290, connections: ['Montreal', 'Washington', 'Londres', 'Madrid'] },
+    { name: 'Washington', group: 0, x: 630, y: 340, connections: ['Montreal', 'Nueva York', 'Atlanta', 'Miami'] },
+    { name: 'Londres', group: 0, x: 900, y: 250, connections: ['Nueva York', 'Madrid', 'Paris', 'Essen'] },
+    { name: 'Madrid', group: 0, x: 900, y: 330, connections: ['Nueva York', 'Londres', 'Paris', 'Sao Paulo', 'Argel'] },
+    { name: 'Paris', group: 0, x: 930, y: 290, connections: ['Madrid', 'Londres', 'Essen', 'Argel', 'Milan'] },
+    { name: 'Essen', group: 0, x: 970, y: 250, connections: ['Londres', 'Paris', 'San Petersburgo', 'Milan'] },
+    { name: 'Milan', group: 0, x: 990, y: 310, connections: ['Essen', 'Paris', 'Estambul'] },
+    { name: 'San Petersburgo', group: 0, x: 1030, y: 200, connections: ['Essen', 'Estambul', 'Moscu'] },
+    { name: 'Moscu', group: 0, x: 1100, y: 230, connections: ['San Petersburgo', 'Estambul', 'Teheran'] },
+    { name: 'Estambul', group: 0, x: 1050, y: 300, connections: ['Milan', 'Moscu', 'Argel', 'El Cairo', 'Bagdad'] },
+    { name: 'Argel', group: 0, x: 950, y: 380, connections: ['Madrid', 'Paris', 'Estambul', 'El Cairo'] },
+    { name: 'El Cairo', group: 0, x: 1020, y: 400, connections: ['Argel', 'Estambul', 'Bagdad', 'Jartum'] },
+    { name: 'Bagdad', group: 0, x: 1100, y: 360, connections: ['Estambul', 'El Cairo', 'Teheran', 'Riad'] },
+    { name: 'Teheran', group: 0, x: 1160, y: 310, connections: ['Moscu', 'Bagdad', 'Karachi', 'Nueva Delhi'] },
+    { name: 'Karachi', group: 0, x: 1210, y: 380, connections: ['Teheran', 'Riad', 'Bombay', 'Nueva Delhi'] },
+    { name: 'Bombay', group: 0, x: 1260, y: 410, connections: ['Karachi', 'Nueva Delhi', 'Madras'] },
+    { name: 'Nueva Delhi', group: 0, x: 1240, y: 350, connections: ['Teheran', 'Karachi', 'Calcuta', 'Bombay'] },
+    { name: 'Calcuta', group: 0, x: 1320, y: 340, connections: ['Nueva Delhi', 'Bangkok', 'Hong Kong'] },
+    { name: 'Madras', group: 0, x: 1320, y: 420, connections: ['Bombay', 'Bangkok', 'Yakarta'] },
+    { name: 'Bangkok', group: 0, x: 1380, y: 370, connections: ['Calcuta', 'Hong Kong', 'Ho Chi Minh', 'Yakarta'] },
+    { name: 'Hong Kong', group: 0, x: 1440, y: 330, connections: ['Shanghai', 'Bangkok', 'Manila', 'Ho Chi Minh', 'Taipei'] },
+    { name: 'Shanghai', group: 0, x: 1480, y: 270, connections: ['Pekin', 'Seul', 'Hong Kong', 'Taipei'] },
+    { name: 'Pekin', group: 0, x: 1520, y: 220, connections: ['Shanghai', 'Seul'] },
+    { name: 'Seul', group: 0, x: 1560, y: 240, connections: ['Pekin', 'Tokio'] },
+    { name: 'Tokio', group: 0, x: 1600, y: 270, connections: ['Seul', 'Osaka', 'San Francisco'] },
+    { name: 'Osaka', group: 0, x: 1640, y: 320, connections: ['Tokio', 'Taipei'] },
+    { name: 'Taipei', group: 0, x: 1570, y: 330, connections: ['Osaka', 'Hong Kong', 'Shanghai'] },
+    { name: 'Ho Chi Minh', group: 0, x: 1450, y: 400, connections: ['Bangkok', 'Hong Kong', 'Manila', 'Yakarta'] },
+    { name: 'Manila', group: 0, x: 1500, y: 430, connections: ['San Francisco', 'Hong Kong', 'Ho Chi Minh', 'Sidney'] },
+    { name: 'Yakarta', group: 0, x: 1430, y: 480, connections: ['Madras', 'Bangkok', 'Ho Chi Minh', 'Sidney'] },
+    { name: 'Sidney', group: 0, x: 1500, y: 550, connections: ['Los Angeles', 'Manila', 'Yakarta'] }
     
-    // ... (agrega las demás ciudades aquí siguiendo el mismo formato)
+
+
   ];
+  
+  
 
   ngOnInit() {}
 
