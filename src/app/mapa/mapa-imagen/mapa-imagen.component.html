@@ -1,26 +1,28 @@
-<div class="prueba">
-  <img src="images/mapa.png" alt="Imagen Irregular" class="neon-image">
-  
-  <!-- Mostrar cada ciudad en su posición escalada -->
+<div class="prueba"> <!-- Contenedor principal para el mapa y las ciudades -->
+  <img src="images/mapa.png" alt="Imagen Irregular" class="neon-image"> <!-- Imagen del mapa -->
+
+  <!-- Sección de las Ciudades -->
   <div *ngFor="let city of cities" 
        [ngStyle]="{ left: city.x + 'px', top: city.y + 'px' }" 
-       class="city-marker">
-    {{ city.name }}
+       class="city-marker"> <!-- Clase para los marcadores de ciudad -->
+    {{ city.name }} <!-- Nombre de la ciudad -->
   </div>
 
-  <!-- Opcional: Línea para mostrar conexiones entre ciudades -->
+  <!-- 
+  Sección de Conexiones
+  Este SVG muestra las conexiones entre las ciudades.
+  -->
   <svg class="map-connections" [attr.width]="containerWidth" [attr.height]="containerHeight">
-    <ng-container *ngFor="let city of cities">
-      <ng-container *ngFor="let connection of city.connections">
+    <ng-container *ngFor="let city of cities"> <!-- Itera sobre cada ciudad -->
+      <ng-container *ngFor="let connection of city.connections"> <!-- Itera sobre las conexiones de cada ciudad -->
         <line *ngIf="getCityPosition(connection)" 
               [attr.x1]="city.x" 
-              [attr.y1]="city.y"
+              [attr.y1]="city.y" 
               [attr.x2]="getCityPosition(connection)?.x" 
-              [attr.y2]="getCityPosition(connection)?.y"
+              [attr.y2]="getCityPosition(connection)?.y" 
               stroke="white" 
-              stroke-width="0.7"/>
+              stroke-width="0.7"/> <!-- Dibuja una línea si la posición de la ciudad de conexión existe -->
       </ng-container>
     </ng-container>
   </svg>
 </div>
-

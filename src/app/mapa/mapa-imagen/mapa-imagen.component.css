@@ -18,6 +18,7 @@
 
 /* Estilo del contenedor principal */
 .prueba {
+  overflow: hidden; /* Evita el desplazamiento */
   background-color: black; /* Fondo oscuro para resaltar el efecto neón */
   display: flex; /* Utiliza flexbox para centrar el contenido */
   justify-content: center; /* Centra horizontalmente */
@@ -27,19 +28,6 @@
   position: relative; /* Posiciona el contenedor de forma relativa para los elementos absolutos dentro */
 }
 
-/* Contenedor para el mapa */
-.map-container {
-  position: relative; /* Posiciona el contenedor de forma relativa para los elementos absolutos dentro */
-  width: 75%; /* Ancho del contenedor del mapa */
-  height: auto; /* Altura automática para mantener la proporción */
-}
-
-/* Fondo del mapa */
-.map-background {
-  width: 75%; /* Ancho del fondo del mapa */
-  height: auto; /* Altura automática para mantener la proporción */
-}
-
 /* Estilo para los marcadores de ciudad */
 .city-marker {
   position: absolute; /* Posiciona los marcadores de forma absoluta */
@@ -47,7 +35,7 @@
   border: 1px solid #333; /* Borde oscuro */
   padding: 4px; /* Espaciado interno */
   border-radius: 20px; /* Bordes redondeados */
-  font-size: 8px; /* Tamaño de fuente pequeño */
+  font-size: 10px; /* Tamaño de fuente pequeño */
   transform: translate(-50%, -50%); /* Centra el marcador en su posición */
   cursor: pointer; /* Cambia el cursor al pasar sobre el marcador */
 }
@@ -59,6 +47,8 @@
   left: 0; /* Ajusta la posición izquierda */
   pointer-events: none; /* Desactiva eventos de puntero para que no interfieran con otros elementos */
   stroke: white; /* Color de las líneas de conexión */
-  
    opacity: 0.7; /*Puedes descomentar esta línea para hacer las líneas ligeramente transparentes si prefieres */
 }
+
+
+  

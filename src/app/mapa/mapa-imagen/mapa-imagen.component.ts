@@ -11,19 +11,14 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule aquí
 
 })
 
-
-
-
-export class MapaImagenComponent implements OnInit, AfterViewInit {
-  @ViewChild('mapContainer') mapContainer!: ElementRef;
-
-
+  export class MapaImagenComponent implements OnInit, AfterViewInit {
+    @ViewChild('mapContainer') mapContainer!: ElementRef; // Referencia al contenedor del mapa
   
-
-  getCityPosition(cityName: string) {
-    const city = this.cities.find(c => c.name === cityName);
-    return city ? { x: city.x, y: city.y } : null;
-  }
+    // Método para obtener la posición de una ciudad dada su nombre
+    getCityPosition(cityName: string) {
+      const city = this.cities.find(c => c.name === cityName); // Busca la ciudad por su nombre
+      return city ? { x: city.x, y: city.y } : null; // Devuelve las coordenadas si la ciudad existe
+    }
   
   // Dimensiones originales del mapa y dimensiones actuales del contenedor
   originalWidth = 3958;
@@ -88,21 +83,25 @@ export class MapaImagenComponent implements OnInit, AfterViewInit {
   
   
 
-  ngOnInit() {}
-
-  ngAfterViewInit() {
-    // Obtenemos el tamaño actual del contenedor
-    this.containerWidth = this.mapContainer.nativeElement.offsetWidth;
-    this.containerHeight = this.mapContainer.nativeElement.offsetHeight;
-    this.scaleCities();
+  ngOnInit() {
+    // Método de ciclo de vida que se llama al inicializar el componente
   }
 
-  // Escalamos las coordenadas de cada ciudad según el tamaño del contenedor
+
+  ngAfterViewInit() {
+    // Método de ciclo de vida que se llama después de que la vista del componente ha sido inicializada
+    this.containerWidth = this.mapContainer.nativeElement.offsetWidth; // Obtiene el ancho actual del contenedor
+    this.containerHeight = this.mapContainer.nativeElement.offsetHeight; // Obtiene el alto actual del contenedor
+    this.scaleCities(); // Escala las posiciones de las ciudades según el tamaño del contenedor
+  }
+
+
+  // Escala las coordenadas de cada ciudad según el tamaño del contenedor
   scaleCities() {
     this.cities = this.cities.map(city => ({
-      ...city,
-      x: (city.x / this.originalWidth) * this.containerWidth,
-      y: (city.y / this.originalHeight) * this.containerHeight
+      ...city, // Copia las propiedades de la ciudad
+      x: (city.x / this.originalWidth) * this.containerWidth, // Escala la coordenada x
+      y: (city.y / this.originalHeight) * this.containerHeight // Escala la coordenada y
     }));
   }
 }
