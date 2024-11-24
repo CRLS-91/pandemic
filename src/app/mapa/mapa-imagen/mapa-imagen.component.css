@@ -59,6 +59,6 @@
   left: 0; /* Ajusta la posición izquierda */
   pointer-events: none; /* Desactiva eventos de puntero para que no interfieran con otros elementos */
   stroke: white; /* Color de las líneas de conexión */
-  stroke-width: 30; /* Grosor de las líneas */
-  /* opacity: 0.7; Puedes descomentar esta línea para hacer las líneas ligeramente transparentes si prefieres */
+  
+   opacity: 0.7; /*Puedes descomentar esta línea para hacer las líneas ligeramente transparentes si prefieres */
 }
