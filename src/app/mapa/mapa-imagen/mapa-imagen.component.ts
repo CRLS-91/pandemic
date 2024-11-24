@@ -76,8 +76,7 @@ import { CommonModule } from '@angular/common'; // Importa CommonModule aquí
     { name: 'Ho Chi Minh', group: 1, x: 1370, y: 440, connections: ['Bangkok', 'Hong Kong', 'Manila', 'Yakarta'] },
     { name: 'Manila', group: 1, x: 1440, y: 430, connections: ['San Francisco','Ho Chi Minh','Taipei','Hong Kong','Sidney'] },
     { name: 'Sidney', group: 1, x: 1520, y: 690, connections: ['Los Angeles', 'Manila', 'Yakarta'] }
-    
-
+  
 
   ];
   
