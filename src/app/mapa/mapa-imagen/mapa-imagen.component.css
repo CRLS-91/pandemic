@@ -1,59 +1,64 @@
+/* Estilo para imágenes con efecto neón */
 .neon-image {
-    width: 75%; /* Ajusta el tamaño según sea necesario */
-    height: auto; /* Mantiene la proporción original */
-  position: absolute;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.8)) 
-            drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) 
-            drop-shadow(0 0 30px rgba(170,255,0)); /* Ajusta el color y tamaño del neón */
-    transition: 0.3s ease;
-  }
+  width: 75%; /* Ajusta el tamaño de la imagen al 75% del contenedor */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  position: absolute; /* Posiciona la imagen de forma absoluta dentro de su contenedor */
+  filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.8)) /* Sombra verde brillante */
+         drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) /* Sombra amarilla */
+         drop-shadow(0 0 30px rgba(170, 255, 0)); /* Sombra verde claro */
+  transition: 0.3s ease; /* Transición suave para el efecto hover */
+}
 
-  .neon-image:hover {
-    filter: drop-shadow(0 0 20px rgb(0, 255, 21)) 
-            drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) 
-            drop-shadow(0 0 60px rgba(0, 255, 170, 0.6)); /* Efecto de brillo más intenso al pasar el ratón */
-  }
-  body {
-    background-color: black; /* Fondo oscuro para resaltar el neón */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
- 
+/* Efecto al pasar el ratón sobre la imagen */
+.neon-image:hover {
+  filter: drop-shadow(0 0 20px rgb(0, 255, 21)) /* Sombra verde más intensa */
+         drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) /* Sombra cian */
+         drop-shadow(0 0 60px rgba(0, 255, 170, 0.6)); /* Sombra verde claro más intensa */
+}
 
-  .map-container {
-    position: relative;
-    width: 75%;
-    height: auto;
-  }
-  
-  .map-background {
-    width: 75%;
-    height: auto;
-  }
-  
-  .city-marker {
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid #333;
-    padding: 4px;
-    border-radius: 20px;
-    font-size: 8px;
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-  }
-  
-  /* Opcional: Estilo para las líneas de conexión */
-  .map-connections {
-    position: relative;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    stroke: white;
-    stroke-width: 30; /* Ajusta el grosor de las líneas */
-    /*opacity: 0.7; Puedes hacer las líneas ligeramente transparentes si prefieres */
-  
-  }
-  
+/* Estilo del contenedor principal */
+.prueba {
+  background-color: black; /* Fondo oscuro para resaltar el efecto neón */
+  display: flex; /* Utiliza flexbox para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Ocupa toda la altura de la ventana del navegador */
+  margin: 0; /* Elimina el margen por defecto */
+  position: relative; /* Posiciona el contenedor de forma relativa para los elementos absolutos dentro */
+}
+
+/* Contenedor para el mapa */
+.map-container {
+  position: relative; /* Posiciona el contenedor de forma relativa para los elementos absolutos dentro */
+  width: 75%; /* Ancho del contenedor del mapa */
+  height: auto; /* Altura automática para mantener la proporción */
+}
+
+/* Fondo del mapa */
+.map-background {
+  width: 75%; /* Ancho del fondo del mapa */
+  height: auto; /* Altura automática para mantener la proporción */
+}
+
+/* Estilo para los marcadores de ciudad */
+.city-marker {
+  position: absolute; /* Posiciona los marcadores de forma absoluta */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
+  border: 1px solid #333; /* Borde oscuro */
+  padding: 4px; /* Espaciado interno */
+  border-radius: 20px; /* Bordes redondeados */
+  font-size: 8px; /* Tamaño de fuente pequeño */
+  transform: translate(-50%, -50%); /* Centra el marcador en su posición */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el marcador */
+}
+
+/* Estilo opcional para las líneas de conexión entre marcadores */
+.map-connections {
+  position: absolute; /* Cambiado a absoluto para que se posicione correctamente */
+  top: 0; /* Ajusta la posición superior */
+  left: 0; /* Ajusta la posición izquierda */
+  pointer-events: none; /* Desactiva eventos de puntero para que no interfieran con otros elementos */
+  stroke: white; /* Color de las líneas de conexión */
+  stroke-width: 30; /* Grosor de las líneas */
+  /* opacity: 0.7; Puedes descomentar esta línea para hacer las líneas ligeramente transparentes si prefieres */
+}
