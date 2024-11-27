@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormControl, FormGroup, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../service/auth.service';
 import { Usuario } from '../../models/usuario.model';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,ReactiveFormsModule,MatFormFieldModule, MatInputModule],
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.css']
 })

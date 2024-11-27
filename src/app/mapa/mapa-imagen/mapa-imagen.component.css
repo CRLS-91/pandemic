@@ -1,8 +1,23 @@
+/* Estilo del contenedor principal */
+.prueba {
+  width: 100%;
+  overflow: hidden; /* Evita el desplazamiento */
+  background-color: black; /* Fondo oscuro para resaltar el efecto neón */
+  display: flex; /* Utiliza flexbox para centrar el contenido */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  aspect-ratio: 3958 / 2596; /* Relación de aspecto basada en el tamaño original */
+  margin: 0;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
 /* Estilo para imágenes con efecto neón */
 .neon-image {
-  width: 75%; /* Ajusta el tamaño de la imagen al 75% del contenedor */
+  width: 100%; /* Ajusta el tamaño de la imagen al 75% del contenedor */
   height: auto; /* Mantiene la proporción original de la imagen */
-  position: absolute; /* Posiciona la imagen de forma absoluta dentro de su contenedor */
+  position: relative; /* Posiciona la imagen de forma absoluta dentro de su contenedor */
   filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.8)) /* Sombra verde brillante */
          drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) /* Sombra amarilla */
          drop-shadow(0 0 30px rgba(170, 255, 0)); /* Sombra verde claro */
@@ -16,23 +31,13 @@
          drop-shadow(0 0 60px rgba(0, 255, 170, 0.6)); /* Sombra verde claro más intensa */
 }
 
-/* Estilo del contenedor principal */
-.prueba {
-  overflow: hidden; /* Evita el desplazamiento */
-  background-color: black; /* Fondo oscuro para resaltar el efecto neón */
-  display: flex; /* Utiliza flexbox para centrar el contenido */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 100vh; /* Ocupa toda la altura de la ventana del navegador */
-  margin: 0; /* Elimina el margen por defecto */
-  position: relative; /* Posiciona el contenedor de forma relativa para los elementos absolutos dentro */
-}
+
 
 /* Estilo para los marcadores de ciudad */
 .city-marker {
   position: absolute; /* Posiciona los marcadores de forma absoluta */
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente */
-  border: 1px solid #333; /* Borde oscuro */
+  background-color: rgba(255, 0, 0, 0.5); /* Fondo para depurar */ /* Fondo blanco semitransparente */
+  border: 1px solid red; /* Borde oscuro */
   padding: 4px; /* Espaciado interno */
   border-radius: 20px; /* Bordes redondeados */
   font-size: 10px; /* Tamaño de fuente pequeño */
@@ -46,7 +51,7 @@
   top: 0; /* Ajusta la posición superior */
   left: 0; /* Ajusta la posición izquierda */
   pointer-events: none; /* Desactiva eventos de puntero para que no interfieran con otros elementos */
-  stroke: white; /* Color de las líneas de conexión */
+  stroke: red; /* Color de las líneas de conexión */
    opacity: 0.7; /*Puedes descomentar esta línea para hacer las líneas ligeramente transparentes si prefieres */
 }
 
