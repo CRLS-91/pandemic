@@ -9,7 +9,7 @@
   aspect-ratio: 3958 / 2596; /* Relación de aspecto basada en el tamaño original */
   margin: 0;
   position: relative;
-  width: 100%;
+  
   height: 100vh;
 }
 
@@ -36,7 +36,7 @@
 /* Estilo para los marcadores de ciudad */
 .city-marker {
   position: absolute; /* Posiciona los marcadores de forma absoluta */
-  background-color: rgba(255, 0, 0, 0.5); /* Fondo para depurar */ /* Fondo blanco semitransparente */
+  background-color: rgba(0, 195, 255, 0.979); /* Fondo para depurar */ /* Fondo blanco semitransparente */
   border: 1px solid red; /* Borde oscuro */
   padding: 4px; /* Espaciado interno */
   border-radius: 20px; /* Bordes redondeados */
