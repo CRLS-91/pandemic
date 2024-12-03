@@ -14,7 +14,7 @@ private apiUrl = 'http://localhost/pandemic_back/'
   constructor(private http: HttpClient) { }
 
   registro(usuario: Usuario): Observable<any>{
-    return this.http.post(this.apiUrl + 'insertar_usuario.php', JSON.stringify(usuario));
+    return this.http.post(this.apiUrl + 'registro.php', JSON.stringify(usuario));
   }
 
 

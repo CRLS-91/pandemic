@@ -5,11 +5,12 @@ import { InformacionComponent } from "./menu/informacion/informacion.component";
 import { AutoresComponent } from "./menu/autores/autores.component";
 import { VersionComponent } from "./menu/version/version.component";
 import { RegistroComponent } from "./auth/registro/registro.component";
+import { LoginComponent } from "./auth/login/login.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RegistroComponent],
+  imports: [RouterOutlet, RegistroComponent, InformacionComponent, SeleccionComponent, LoginComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
