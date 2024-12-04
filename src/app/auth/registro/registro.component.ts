@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../../service/auth.service';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Usuario } from '../../models/usuario.model';
+
 
 
 
@@ -18,8 +19,8 @@ import { Usuario } from '../../models/usuario.model';
   styleUrls: ['./registro.component.css']
 })
 export class RegistroComponent {
-  
-  constructor(private router: Router, private authService:AuthService ) {} //se añade la , para poder añadir un constructor nuevo cuando ya hay uno
+  //constructor(private router : Router) {} //se añade la , para poder añadir un constructor nuevo cuando ya hay uno
+  constructor(private router : Router) {} //se añade la , para poder añadir un constructor nuevo cuando ya hay uno
 
   // Formulario reactivo con validaciones
   miFormulario = new FormGroup({
@@ -43,24 +44,16 @@ export class RegistroComponent {
 
       }
 
-      this.authService.registro(usuario).subscribe(
-        response => {
-          if(response.status == 'success'){
-          console.log(response.message);
-        }
-      }
-      );
-
-
+   
     } else {
       console.log('Alguno de los datos es incorrecto');
     }
   }
 
   // Método para navegar al login
-  irALogin() {
-    this.router.navigate(['/login']);
-  }
+ // irALogin() {
+   // this.router.navigate(['/login']);
+  //}
 
   
 }
