@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule aquí
-import { HostListener } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 
 @Component({
@@ -13,20 +13,14 @@ import { ChangeDetectorRef } from '@angular/core';
 
 })
 
-  export class MapaImagenComponent implements OnInit, AfterViewInit {
-    @ViewChild('mapContainer') mapContainer!: ElementRef; // Referencia al contenedor del mapa
-  
-      // Dimensiones originales del mapa
-  originalWidth = 1800;
-  originalHeight = 1100;
 
-  // Dimensiones actuales del contenedor
-  containerWidth: number = 800;
-  containerHeight: number = 525;
-  constructor(private cdr: ChangeDetectorRef) {}
 
-  cities: { name: string; group: number; x: number; y: number; connections: string[] }[] = [
-    { name: 'San Francisco', group: 0, x: 440, y: 290, connections: ['Chicago', 'Los Angeles', 'Manila', 'Tokio'] },
+  export class MapaImagenComponent implements AfterViewInit {
+    constructor(private cdr: ChangeDetectorRef) {}
+
+    // Declaración del tipo correcto para `ciudades`
+    ciudades: { name: string; group: number; x: number; y: number; connections: string[] }[] = [
+      { name: 'San Francisco', group: 0, x: 440, y: 290, connections: ['Chicago', 'Los Angeles', 'Manila', 'Tokio'] },
     { name: 'Chicago', group: 0, x: 580, y: 310, connections: ['San Francisco', 'Montreal', 'Atlanta', 'Mexico DF', 'Los Angeles'] },
     { name: 'Atlanta', group: 0, x: 580, y: 330, connections: ['Chicago', 'Miami', 'Washington'] },
     { name: 'Montreal', group: 0, x: 630, y: 270, connections: ['Chicago', 'Nueva York', 'Washington'] },
@@ -75,54 +69,37 @@ import { ChangeDetectorRef } from '@angular/core';
     { name: 'Manila', group: 1, x: 1440, y: 430, connections: ['San Francisco','Ho Chi Minh','Taipei','Hong Kong','Sidney'] },
     { name: 'Sidney', group: 1, x: 1520, y: 690, connections: ['Los Angeles', 'Manila', 'Yakarta'] }
   ];
-  ngOnInit() {
-    console.log('Initial Cities:', this.cities); // Verifica que las ciudades estén cargadas
-  }
-  
 
+  coordenadas: { [key: string]: { top: number; left: number } } = {};
 
   ngAfterViewInit() {
-    if (this.mapContainer) {
-      this.containerWidth = this.mapContainer.nativeElement.offsetWidth;
-      this.containerHeight = this.mapContainer.nativeElement.offsetHeight;
-      console.log('Container Dimensions:', this.containerWidth, this.containerHeight);
-      this.scaleCities();
-  
-      // Forzar la detección de cambios
-      this.cdr.detectChanges();
-    } else {
-      console.error('mapContainer no está definido.');
-    }
+    this.updateCoordinates();
   }
 
-  
   @HostListener('window:resize', ['$event'])
-  onResize() {
-    this.containerWidth = this.mapContainer.nativeElement.offsetWidth;
-    this.containerHeight = this.mapContainer.nativeElement.offsetHeight;
-    this.scaleCities();
+  onResize(event: Event) {
+    this.updateCoordinates();
   }
 
+  private updateCoordinates() {
+    const mapContainer = document.querySelector('.map-container') as HTMLElement;
 
-    
-  scaleCities() {
-    console.log('Original Cities:', this.cities); // Imprime el array original de ciudades
-    this.cities = this.cities.map(city => ({
-      ...city,
-      x: (city.x / this.originalWidth) * this.containerWidth,
-      y: (city.y / this.originalHeight) * this.containerHeight,
-    }));
-    console.log('Updated City Positions:', this.cities); // Imprime las posiciones escaladas
-  }
-  
-  // Obtiene la posición de una ciudad
-  getCityPosition(cityName: string) {
-    const city = this.cities.find(c => c.name === cityName);
-    return city ? { x: city.x, y: city.y } : null;
-  }
+    if (!mapContainer) {
+      console.warn('No se encontró el contenedor del mapa.');
+      return;
     }
-  
-  
 
+    const mapWidth = mapContainer.offsetWidth;
+    const mapHeight = mapContainer.offsetHeight;
 
+    // Calcular coordenadas según el tamaño del mapa
+    this.ciudades.forEach(ciudad => {
+      this.coordenadas[ciudad.name] = {
+        top: (ciudad.y / 2000) * mapHeight, // Ajustar según proporción esperada
+        left: (ciudad.x / 2000) * mapWidth // Ajustar según proporción esperada
+      };
+    });
 
+    this.cdr.detectChanges();
+  }
+}

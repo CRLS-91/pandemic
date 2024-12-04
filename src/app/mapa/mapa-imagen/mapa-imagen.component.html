@@ -1,28 +1,31 @@
-<div class="prueba"  #mapContainer> <!-- Contenedor principal para el mapa y las ciudades -->
-  <img src="images/nuevo-removebg.png" alt="Imagen Irregular" class="neon-image"> <!-- Imagen del mapa -->
+<div class="map-container">
+  <img src="/images/mapa.png" alt="Mapa del mundo" class="map-image" />
 
-  <!-- Sección de las Ciudades -->
-  <div *ngFor="let city of cities" 
-       [ngStyle]="{ left: city.x + 'px', top: city.y + 'px' }" 
-       class="city-marker"> <!-- Clase para los marcadores de ciudad -->
-    {{ city.name }} <!-- Nombre de la ciudad -->
+  <div class="linea-container">
+    <svg class="linea">
+      <ng-container *ngFor="let ciudad of ciudades">
+        <ng-container *ngFor="let conexion of ciudad.connections">
+          <line
+            [attr.x1]="coordenadas[ciudad.name]?.left"
+            [attr.y1]="coordenadas[ciudad.name]?.top"
+            [attr.x2]="coordenadas[conexion]?.left"
+            [attr.y2]="coordenadas[conexion]?.top"
+            stroke="violet"
+            stroke-width="2"
+          />
+        </ng-container>
+      </ng-container>
+    </svg>
   </div>
 
-  <!-- 
-  Sección de Conexiones
-  Este SVG muestra las conexiones entre las ciudades.
-  -->
-  <svg class="map-connections" [attr.width]="containerWidth" [attr.height]="containerHeight">
-    <ng-container *ngFor="let city of cities"> <!-- Itera sobre cada ciudad -->
-      <ng-container *ngFor="let connection of city.connections"> <!-- Itera sobre las conexiones de cada ciudad -->
-        <line *ngIf="getCityPosition(connection)" 
-              [attr.x1]="city.x" 
-              [attr.y1]="city.y" 
-              [attr.x2]="getCityPosition(connection)?.x" 
-              [attr.y2]="getCityPosition(connection)?.y" 
-              stroke="white" 
-              stroke-width="0.7"/> <!-- Dibuja una línea si la posición de la ciudad de conexión existe -->
-      </ng-container>
-    </ng-container>
-  </svg>
+  <div
+    *ngFor="let ciudad of ciudades"
+    class="ciudad"
+    [style.top.px]="coordenadas[ciudad.name]?.top"
+    [style.left.px]="coordenadas[ciudad.name]?.left"
+    [attr.data-ciudad]="ciudad.name"
+  >
+    <div class="punto"></div>
+    <span class="nombre">{{ ciudad.name }}</span>
+  </div>
 </div>
