@@ -1,41 +1,34 @@
-/* Estilo del contenedor principal */
-.prueba {
-  width: 100%;
-  overflow: hidden; /* Evita el desplazamiento */
-  background-color: black; /* Fondo oscuro para resaltar el efecto neón */
-  display: flex; /* Utiliza flexbox para centrar el contenido */
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  aspect-ratio: 3958 / 2596; /* Relación de aspecto basada en el tamaño original */
-  margin: 0;
+.map-container {
+  background-color: black;
   position: relative;
-  
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  aspect-ratio: 626 / 427;
 }
 
-/* Estilo para imágenes con efecto neón */
-.neon-image {
-  width: 100%; /* Ajusta el tamaño de la imagen al 75% del contenedor */
-  height: auto; /* Mantiene la proporción original de la imagen */
+.map-image {
+  width: 100%;
+  height: 100%;
   position: relative; /* Posiciona la imagen de forma absoluta dentro de su contenedor */
   filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.8)) /* Sombra verde brillante */
          drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) /* Sombra amarilla */
          drop-shadow(0 0 30px rgba(170, 255, 0)); /* Sombra verde claro */
   transition: 0.3s ease; /* Transición suave para el efecto hover */
+
 }
 
-/* Efecto al pasar el ratón sobre la imagen */
-.neon-image:hover {
+.map-image:hover {
   filter: drop-shadow(0 0 20px rgb(0, 255, 21)) /* Sombra verde más intensa */
          drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) /* Sombra cian */
-         drop-shadow(0 0 60px rgba(0, 255, 170, 0.6)); /* Sombra verde claro más intensa */
+         drop-shadow(0 0 60px rgba(230, 7, 7, 0.6)); /* Sombra verde claro más intensa */
 }
 
-
-
-/* Estilo para los marcadores de ciudad */
-.city-marker {
-  position: absolute; /* Posiciona los marcadores de forma absoluta */
+.ciudad {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba(0, 195, 255, 0.979); /* Fondo para depurar */ /* Fondo blanco semitransparente */
   border: 1px solid red; /* Borde oscuro */
   padding: 4px; /* Espaciado interno */
@@ -43,17 +36,41 @@
   font-size: 10px; /* Tamaño de fuente pequeño */
   transform: translate(-50%, -50%); /* Centra el marcador en su posición */
   cursor: pointer; /* Cambia el cursor al pasar sobre el marcador */
+  z-index: 2;
 }
 
-/* Estilo opcional para las líneas de conexión entre marcadores */
-.map-connections {
-  position: absolute; /* Cambiado a absoluto para que se posicione correctamente */
-  top: 0; /* Ajusta la posición superior */
-  left: 0; /* Ajusta la posición izquierda */
-  pointer-events: none; /* Desactiva eventos de puntero para que no interfieran con otros elementos */
-  stroke: red; /* Color de las líneas de conexión */
-   opacity: 0.7; /*Puedes descomentar esta línea para hacer las líneas ligeramente transparentes si prefieres */
+.punto {
+  width: 4px;
+  height: 4px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 5px;
 }
 
+.nombre {
+  color: #32cd32;
+  text-decoration: underline;
+  text-decoration-color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px black;
+}
 
-  
+.linea-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.linea {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.linea line {
+  stroke: violet;
+  stroke-width: 1;
+}
