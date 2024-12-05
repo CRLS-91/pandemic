@@ -6,6 +6,8 @@ import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Usuario } from '../../models/usuario.model';
+import { AuthService } from '../../service/auth.service';
+
 
 
 
@@ -20,13 +22,13 @@ import { Usuario } from '../../models/usuario.model';
 })
 export class RegistroComponent {
   //constructor(private router : Router) {} //se añade la , para poder añadir un constructor nuevo cuando ya hay uno
-  constructor(private router : Router) {} //se añade la , para poder añadir un constructor nuevo cuando ya hay uno
+  constructor(private router : Router, private authServive : AuthService) {} //se añade la , para poder añadir un constructor nuevo cuando ya hay uno
 
   // Formulario reactivo con validaciones
   miFormulario = new FormGroup({
     nombre: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(30)]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    mensaje: new FormControl('', [Validators.required]),
+   // mensaje: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required])
   }, ); // Añade el validador personalizado
@@ -39,12 +41,17 @@ export class RegistroComponent {
   
       const usuario: Usuario={
         nombre: this.miFormulario.value.nombre,
-        password: this.miFormulario.value.password,
         email: this.miFormulario.value.email,
+        password: this.miFormulario.value.password,
 
       }
 
-   
+   this.authServive.registro(usuario).subscribe(
+    response => {
+      console.log(response);
+    }
+   );
+
     } else {
       console.log('Alguno de los datos es incorrecto');
     }
