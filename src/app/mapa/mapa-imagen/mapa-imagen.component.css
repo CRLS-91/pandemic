@@ -1,5 +1,5 @@
 .map-container {
-  background-color: black;
+  background-color: #000000;
   position: relative;
   width: 100%;
   height: 100%;
@@ -13,18 +13,17 @@
 .map-image {
   width: 80%;
   height: 100%;
-  position: relative; /* Posiciona la imagen de forma absoluta dentro de su contenedor */
-  filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.8)) /* Sombra verde brillante */
+  position: relative;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.632)) /* Sombra verde brillante */
          drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) /* Sombra amarilla */
-         drop-shadow(0 0 30px rgba(170, 255, 0)); /* Sombra verde claro */
-  transition: 0.3s ease; /* Transición suave para el efecto hover */
-
+         drop-shadow(0 0 30px rgba(170, 255, 0, 0.527)); /* Sombra verde claro */
+  transition: 0.3s ease;
 }
 
 .map-image:hover {
-  filter: drop-shadow(0 0 20px rgb(0, 255, 21)) /* Sombra verde más intensa */
+  filter: drop-shadow(0 0 20px rgba(0, 255, 21, 0.512)) /* Sombra verde más intensa */
          drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) /* Sombra cian */
-         drop-shadow(0 0 60px rgba(219, 9, 139, 0.6)); /* Sombra verde claro más intensa */
+         drop-shadow(0 0 60px #09f1f199); /* Sombra verde claro más intensa */
 }
 
 .ciudad {
@@ -32,31 +31,30 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 195, 255, 0.979); /* Fondo para depurar */ /* Fondo blanco semitransparente */
-  border: 1px solid red; /* Borde oscuro */
-  padding: 4px; /* Espaciado interno */
-  border-radius: 20px; /* Bordes redondeados */
-  font-size: 10px; /* Tamaño de fuente pequeño */
-  transform: translate(-50%, -50%); /* Centra el marcador en su posición */
-  cursor: pointer; /* Cambia el cursor al pasar sobre el marcador */
-  z-index: 2;
+  background-color: cyan;
+  border: 5px solid violet; /* Borde amarillo anaranjado (#F18789) */
+  padding: 4px;
+  border-radius: 20px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  
 }
 
-.punto {
-  width: 4px;
-  height: 4px;
-  background-color: red;
-  border-radius: 50%;
-  margin-right: 5px;
-}
 
-.nombre {
-  color: #32cd32;
-  text-decoration: underline;
-  text-decoration-color: white;
+.ciudad .nombre {
+  display: none;
+  border-radius: 20px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  text-shadow: 1px 1px 2px black;
+  
 }
+
+
+.ciudad:hover .nombre {
+  display: block;
+}
+
 
 .linea-container {
   position: absolute;
@@ -65,7 +63,7 @@
   width: 100%;
   height: 100%;
   z-index: 1;
-  pointer-events: none; /* Permite pasar los eventos del mouse a la imagen */
+  pointer-events: none;
 }
 
 .linea {
@@ -75,6 +73,6 @@
 }
 
 .linea line {
-  stroke: violet;
-  stroke-width: 1;
+  stroke: cyan; /* Celeste (#F1A662) para mejor equilibrio visual */
+  stroke-width: 1.2; /* Ajustado para mejor visibilidad y equilibrio */
 }
