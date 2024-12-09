@@ -1,49 +1,101 @@
+h1 {
+  margin: 0; /* Elimina el margen por defecto del h1 */
+  padding: 20px; /* Añade un padding de 20px alrededor del texto */
+  color: #def10f; /* Establece el color del texto a un tono amarillo */
+  font-size: 50px; /* Define el tamaño de la fuente a 50px */
+}
 
-  html,
-  body {
-    background: #ecf0f3;
-  }
-  h1 {
-    margin: 0;
-    padding: 0;
-  }
-  .custom-form {
-    min-width: 300px;
-    max-width: 60%;
-    margin: 0px auto;
-    background: rgba(255, 255, 255, 0.15);
-    padding: 2rem 3rem;
-    margin: auto;
-    border-radius: 2.5rem;
-    background-color: #ecf0f3;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #ffffff;
-    color: black;
-    margin-top: 10rem;
-  }
-  .custom-form input {
-    display: block;
-    margin: 2rem 0;
-    width: 100%;
-    border-radius: 0.5rem;
-    padding: 1rem;
-    border: none;
-    box-shadow: inset -5px -5px 15px rgba(255, 255, 255, 0.8), inset 5px 5px 10px
-        rgba(0, 0, 0, 0.1);
-    border: 0 none;
-    background: #ebf5fc;
-  }
-  .custom-form button {
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border: none;
-    font-size: 0.875rem;
-    color: #ffffff;
-    font-weight: bold;
-    background-color: #bcd8c1;
-    width: 100%;
-    display: block;
-    padding: 0.875rem 1rem;
-    border-radius: 1.5rem;
-    box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8px #ffffff;
-    cursor: pointer;
-  }
+.custom-form {
+  width: 100%; /* Ancho completo del contenedor */
+  height: 50%; /* Altura del contenedor al 50% del elemento padre */
+  
+  min-width: 300px; /* Ancho mínimo de 300px */
+  max-width: 60%; /* Ancho máximo del 60% del elemento padre */
+  
+  margin: 0px auto; /* Centra el contenedor horizontalmente */
+  padding: 32px 48px; /* Añade padding interno de 32px vertical y 48px horizontal */
+  
+  border-radius: 40px; /* Bordes redondeados con un radio de 40px */
+  
+  background-color: #0000009a; /* Color de fondo negro con opacidad */
+  
+  box-shadow: 13px 13px 20px #f20f03, -13px -13px 20px yellow; /* Sombra del contenedor */
+ 
+  color: red; /* Color del texto dentro del formulario */
+  margin-top: 160px; /* Margen superior de 160px */
+}
+
+.custom-form input {
+  display: block; /* Hace que el input se comporte como un bloque */
+  margin: 32px 0; /* Margen vertical de 32px */
+  
+  width: 100%; /* Ancho completo del input */
+  
+  border-radius: 8px; /* Bordes redondeados con un radio de 8px */
+  
+  padding: 16px; /* Padding interno de 16px */
+  
+  color: #333; /* Color del texto dentro del input */
+  font-size: 16px; /* Tamaño de la fuente a 16px */
+}
+
+.custom-form button {
+  background-color: black; /* Color de fondo negro para el botón */
+ 
+  text-transform: uppercase; /* Convierte el texto a mayúsculas */
+  
+  letter-spacing: 2.4px; /* Espaciado entre letras de 2.4px */
+  
+  font-size: 14px; /* Tamaño de la fuente a 14px */
+  
+  color: #0a0606; /* Color del texto del botón */
+  
+  font-weight: bold; /* Texto en negrita */
+  
+  background-color: #def10f; /* Color de fondo amarillo para el botón */
+  
+  width: 100%; /* Ancho completo del botón */
+  
+  display: block; /* Hace que el botón se comporte como un bloque */
+ 
+  padding: 12px 24px; /* Padding interno de 12px vertical y 24px horizontal */
+  
+  border-radius: 1.5rem; /* Bordes redondeados con un radio de 1.5rem */
+  border: none; /* Sin borde */
+  
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.1); /* Sombra del botón */
+  
+  cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el botón */
+  
+  transition: all 0.3s ease; /* Transición suave para todos los cambios en 0.3 segundos */
+  
+  margin: 16px 0; /* Margen vertical de 16px */
+}
+
+.custom-form button:hover {
+  background-color: #0a74da; /* Cambia el color de fondo al pasar el mouse */
+  color: #ffffff; /* Cambia el color del texto a blanco al pasar el mouse */
+  
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.login {
+  background-color: black; /* Color de fondo negro para la sección de login */
+  
+  background-position: center; /* Centra la imagen de fondo */
+  
+  height: 100vh; /* Altura completa de la ventana del navegador */
+  
+  width: 100%; /* Ancho completo de la sección */
+  
+  text-align: center; /* Centra el texto horizontalmente */
+  
+  display: flex; /* Utiliza flexbox para el diseño */
+  
+  flex-direction: column; /* Organiza los elementos en una columna */
+ justify-content: center; /* Centra los elementos verticalmente */
+  
+  align-items: center; /* Centra los elementos horizontalmente */
+
+  background-image: url("/images/virus.png"); /* Establece una imagen de fondo */
+}

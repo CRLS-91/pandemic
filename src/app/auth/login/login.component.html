@@ -1,24 +1,24 @@
-<div class="login">
-  <form [formGroup]="loginForm" (ngSubmit)="irALogin()" class="custom-form">
-    <h1>Login</h1>
+<div class="login"> <!-- Contenedor principal para la sección de login -->
+  <form [formGroup]="loginForm" (ngSubmit)="irALogin()" class="custom-form"> <!-- Formulario de login, vinculado a un grupo de formularios y con un evento de envío -->
+    <h1>Login</h1> <!-- Título del formulario -->
 
     <!-- Campo de Email -->
-    <mat-form-field appearance="fill">
-      <input matInput formControlName="email" placeholder="Email" />
-      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-        <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
-        <small *ngIf="loginForm.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small>
+    <mat-form-field appearance="fill"> <!-- Campo de formulario para el email con apariencia 'fill' -->
+      <input matInput formControlName="email" placeholder="Email" /> <!-- Campo de entrada para el email, vinculado al control 'email' -->
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"> <!-- Mensajes de error que se muestran si el campo es inválido y ha sido tocado -->
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small> <!-- Mensaje de error si el campo es requerido -->
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small> <!-- Mensaje de error si el email no es válido -->
       </div>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Password" formControlName="password" type="password"/>
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-        <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+    <mat-form-field> <!-- Campo de formulario para la contraseña -->
+      <input matInput placeholder="Password" formControlName="password" type="password"/> <!-- Campo de entrada para la contraseña, vinculado al control 'password' -->
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"> <!-- Mensajes de error que se muestran si el campo es inválido y ha sido tocado -->
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small> <!-- Mensaje de error si el campo es requerido -->
       </div>
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
-    <button routerLink="/registro">Registrarse</button>
+
+    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button> <!-- Botón para enviar el formulario, con estilo de botón elevado -->
+    <button routerLink="/registro">Registrarse</button> <!-- Botón que redirige a la página de registro -->
   </form>
-
 </div>
