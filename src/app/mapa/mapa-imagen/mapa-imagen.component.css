@@ -1,23 +1,23 @@
 .map-container {
-  background-color: #000000;
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  aspect-ratio: 626 / 427;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: #000000; /* Color de fondo negro para el contenedor del mapa */
+  position: relative; /* Posicionamiento relativo para permitir posicionamiento absoluto de elementos hijos */
+  width: 100%; /* Ancho del contenedor al 100% del elemento padre */
+  height: 100%; /* Altura del contenedor al 100% del elemento padre */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde del contenedor */
+  aspect-ratio: 626 / 427; /* Mantiene una relación de aspecto específica para el contenedor */
+  display: flex; /* Utiliza flexbox para alinear elementos hijos */
+  justify-content: center; /* Centra horizontalmente los elementos hijos */
+  align-items: center; /* Centra verticalmente los elementos hijos */
 }
 
 .map-image {
-  width: 80%;
-  height: 100%;
-  position: relative;
+  width: 80%; /* Ancho de la imagen del mapa al 80% del contenedor */
+  height: 100%; /* Altura de la imagen del mapa al 100% del contenedor */
+  position: relative; /* Posicionamiento relativo para permitir efectos de sombra */
   filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.632)) /* Sombra verde brillante */
          drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) /* Sombra amarilla */
          drop-shadow(0 0 30px rgba(170, 255, 0, 0.527)); /* Sombra verde claro */
-  transition: 0.3s ease;
+  transition: 0.3s ease; /* Transición suave para efectos de hover */
 }
 
 .map-image:hover {
@@ -27,52 +27,47 @@
 }
 
 .ciudad {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: cyan;
-  border: 5px solid violet; /* Borde amarillo anaranjado (#F18789) */
-  padding: 4px;
-  border-radius: 20px;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  
+  position: absolute; /* Posicionamiento absoluto para colocar la ciudad en el mapa */
+  display: flex; /* Utiliza flexbox para alinear el contenido dentro del marcador de ciudad */
+  align-items: center; /* Centra verticalmente el contenido dentro del marcador */
+  justify-content: center; /* Centra horizontalmente el contenido dentro del marcador */
+  background-color: cyan; /* Color de fondo cian para el marcador de ciudad */
+  border: 3px solid rgba(0, 255, 76, 0.632); /* Borde con color verde brillante */
+  padding: 4px; /* Espaciado interno del marcador */
+  border-radius: 20px; /* Bordes redondeados para el marcador */
+  transform: translate(-50%, -50%); /* Centra el marcador en su posición */
+  cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el marcador */
 }
-
 
 .ciudad .nombre {
-  display: none;
-  border-radius: 20px;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: bold;
-  
+  display: none; /* Oculta el nombre de la ciudad por defecto */
+  border-radius: 20px; /* Bordes redondeados para el nombre de la ciudad */
+  font-size: 15px; /* Tamaño de fuente para el nombre de la ciudad */
+  font-family: Arial, Helvetica, sans-serif; /* Tipografía para el nombre de la ciudad */
+  font-weight: bold; /* Estilo de fuente en negrita para el nombre de la ciudad */
 }
-
 
 .ciudad:hover .nombre {
-  display: block;
+  display: block; /* Muestra el nombre de la ciudad al pasar el mouse sobre el marcador */
 }
 
-
 .linea-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  pointer-events: none;
+  position: absolute; /* Posicionamiento absoluto para el contenedor de líneas */
+  top: 0; /* Posición superior al 0 para cubrir todo el contenedor */
+  left: 0; /* Posición izquierda al 0 para cubrir todo el contenedor */
+  width: 100%; /* Ancho del contenedor de líneas al 100% */
+  height: 100%; /* Altura del contenedor de líneas al 100% */
+  z-index: 1; /* Asegura que el contenedor de líneas esté por encima de otros elementos */
+  pointer-events: none; /* Desactiva eventos de puntero para que no interfiera con la interacción del usuario */
 }
 
 .linea {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+  position: absolute; /* Posicionamiento absoluto para las líneas */
+  width: 100%; /* Ancho del contenedor de líneas al 100% */
+  height: 100%; /* Altura del contenedor de líneas al 100% */
 }
 
 .linea line {
-  stroke: cyan; /* Celeste (#F1A662) para mejor equilibrio visual */
-  stroke-width: 1.2; /* Ajustado para mejor visibilidad y equilibrio */
-}
+  stroke: rgba(255, 255, 255, 0.325); /* Color celeste para las líneas, con opacidad para un mejor equilibrio visual */
+  stroke-width: 1.2; /* Grosor de la línea ajustado para mejor visibilidad y equilibrio */
+} /* Estilo para las líneas que conectan las ciudades */

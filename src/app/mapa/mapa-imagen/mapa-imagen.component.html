@@ -1,22 +1,28 @@
 <div class="map-container">
+  <!-- Imagen del mapa del mundo -->
   <img src="/images/mapaprueba.png" alt="Mapa del mundo" class="map-image" />
 
   <div class="linea-container">
+    <!-- Contenedor para las líneas que conectan las ciudades -->
     <svg class="linea">
+      <!-- Itera sobre cada ciudad en el array 'ciudades' -->
       <ng-container *ngFor="let ciudad of ciudades">
+        <!-- Itera sobre cada conexión de la ciudad actual -->
         <ng-container *ngFor="let conexion of ciudad.connections">
+          <!-- Dibuja una línea entre la ciudad y su conexión -->
           <line
-            [attr.x1]="coordenadas[ciudad.name]?.left"
-            [attr.y1]="coordenadas[ciudad.name]?.top"
+            [attr.x1]="coordenadas[ciudad.name]?.left" 
+            [attr.y1]="coordenadas[ciudad.name]?.top"  
             [attr.x2]="coordenadas[conexion]?.left"
             [attr.y2]="coordenadas[conexion]?.top"
-            stroke="violet"
-            stroke-width="2"
+            
           />
         </ng-container>
       </ng-container>
     </svg>
   </div>
+
+ <!-- Itera sobre cada ciudad para crear un marcador en el mapa -->
 
   <div
     *ngFor="let ciudad of ciudades"
@@ -25,7 +31,7 @@
     [style.left.px]="coordenadas[ciudad.name]?.left"
     [attr.data-ciudad]="ciudad.name"
   >
-    <div class="punto"></div>
-    <span class="nombre">{{ ciudad.name }}</span>
-  </div>
+  <div class="punto"></div> <!-- Elemento visual que representa la ciudad en el mapa -->
+  <span class="nombre">{{ ciudad.name }}</span> <!-- Muestra el nombre de la ciudad -->
+</div>
 </div>
