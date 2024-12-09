@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Login } from '../../models/login.model';
 import { AuthService } from '../../service/auth.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ import { AuthService } from '../../service/auth.service';
     CommonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule  //para poder hacer routerLInk con los botones
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']

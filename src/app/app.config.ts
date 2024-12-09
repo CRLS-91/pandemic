@@ -6,7 +6,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), provideAnimationsAsync(), provideAnimationsAsync(), provideAnimationsAsync(), provideHttpClient()
-  ]
+    provideRouter(routes),
+    provideAnimationsAsync(),
+    provideHttpClient(),
+  ],
 };
 //este es el archivo que antes se llamaba module.ts

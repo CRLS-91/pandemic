@@ -1,9 +1,12 @@
 <div class="login">
   <form [formGroup]="loginForm" (ngSubmit)="irALogin()" class="custom-form">
     <h1>Login</h1>
-    <mat-form-field>
-      <input matInput placeholder="Email" formControlName="email" />
+
+    <!-- Campo de Email -->
+    <mat-form-field appearance="fill">
+      <input matInput formControlName="email" placeholder="Email" />
       <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small>
         <small *ngIf="loginForm.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small>
       </div>
     </mat-form-field>
@@ -15,8 +18,7 @@
       </div>
     </mat-form-field>
     <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+    <button routerLink="/registro">Registrarse</button>
   </form>
-  <button><span routerLink="/registro">
-    Registrarse
-  </span></button>
+
 </div>

@@ -1,23 +1,61 @@
-.todo{
-    background-image: url(/images/pandemic.png);
-    background-position:center;
+
+.todo {
+    /* Establece un color de fondo negro para el contenedor */
+    background-color: black;
+    /* Centra la imagen de fondo en el contenedor */
+    background-position: center;
+    /* Ajusta el tamaño de la imagen de fondo para cubrir todo el contenedor */
     background-size: cover;
-    height: 734px;
-    width: 1181px;
-    text-align: center; 
+    /* Establece la altura del contenedor para ocupar toda la altura de la pantalla */
+    height: 100vh; 
+    /* Establece el ancho del contenedor para ocupar todo el ancho de la pantalla */
+    width: 100%;
+    /* Alinea el texto al centro del contenedor */
+    text-align: center;
+    /* Utiliza flexbox para alinear los elementos dentro del contenedor */
     display: flex;
-	align-items: center;
-	justify-content: center;
-    flex-wrap: wrap;
+    /* Organiza los elementos en una columna */
+    flex-direction: column; 
+    /* Centra verticalmente todos los elementos dentro del contenedor */
+    justify-content: center; 
+    /* Centra horizontalmente todos los elementos dentro del contenedor */
+    align-items: center; 
+    /* Establece un espacio entre los elementos dentro del contenedor */
+    gap: 5px; /* Espacio entre el logo y el botón */
 }
 
-.entrar{
-    margin-top: 700px;
-    margin-bottom: 100px;
-   
+/* Estilo para las imágenes dentro del contenedor */
+img {
+    /* Ajusta la altura máxima de la imagen para evitar que ocupe toda la pantalla */
+    max-height: 90%; 
+    /* Ajusta el ancho máximo de la imagen para que no exceda el contenedor */
+    max-width: 90%;
 }
 
-button{
+/* Estilo para los botones */
+button {
+    /* Establece la altura de los botones */
     height: 50px;
+    /* Establece el ancho de los botones */
     width: 150px;
+    /* Cambia el cursor a puntero al pasar sobre el botón */
+    cursor: pointer;
+    /* Establece el color de fondo del botón */
+    background-color: white;
+    /* Establece el color del texto del botón */
+    color: black;
+    /* Establece el tamaño de la fuente del texto en el botón */
+    font-size: 19px;
+    /* Establece bordes redondeados para el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    /* Elimina el borde predeterminado del botón */
+    border: none;
+    /* Establece una transición suave para el cambio de color de fondo al pasar el mouse */
+    transition: background-color 0.3s ease; /* Transición suave en hover */
+}
+
+/* Estilo para el efecto hover del botón */
+button:hover {
+    /* Cambia el color de fondo del botón al pasar el mouse sobre él */
+    background-color: yellow; /* Efecto hover opcional */
 }
