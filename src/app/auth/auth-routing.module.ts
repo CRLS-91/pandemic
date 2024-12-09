@@ -6,9 +6,9 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {path: '' , component: InicioComponent},
-  {path: 'registro' , component: RegistroComponent},
   {path: 'inicio' , component: InicioComponent},
-  {path: 'login' , component: LoginComponent}
+  {path: 'login' , component: LoginComponent},
+  {path: 'registro' , component: RegistroComponent}
   
 
 ];
@@ -18,7 +18,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AuthRoutingModule { 
-
+  
 
 
 }

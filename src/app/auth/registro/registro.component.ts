@@ -31,7 +31,8 @@ export class RegistroComponent {
    // mensaje: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     confirmPassword: new FormControl('', [Validators.required])
-  }, ); // Añade el validador personalizado
+  }, ); 
+  // Añade el validador personalizado
 
 
   // Método para enviar el formulario
@@ -42,9 +43,9 @@ export class RegistroComponent {
       const usuario: Usuario={
         nombre: this.miFormulario.value.nombre,
         email: this.miFormulario.value.email,
-        password: this.miFormulario.value.password,
+        password: this.miFormulario.value.password
 
-      }
+      };
 
    this.authServive.registro(usuario).subscribe(
     response => {
@@ -55,12 +56,5 @@ export class RegistroComponent {
     } else {
       console.log('Alguno de los datos es incorrecto');
     }
-  }
-
-  // Método para navegar al login
- // irALogin() {
-   // this.router.navigate(['/login']);
-  //}
-
-  
+  }  
 }

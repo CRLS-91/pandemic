@@ -1,21 +1,22 @@
 <div class="login">
-    <form class="custom-form" method="post">
-      <h1>Login</h1>
-      <input
-        [(ngModel)]="email"
-        name="email"
-        placeholder="Email"
-        required="required"
-      />
-      <input
-        [(ngModel)]="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-      />
-      
-      <button (click)="perfil()">Iniciar Sesion</button>
-      <button (click)="irARegistro()">Registrarse</button>
-    </form>
-  </div>
-  
+  <form [formGroup]="loginForm" (ngSubmit)="irALogin()" class="custom-form">
+    <h1>Login</h1>
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Password" formControlName="password" type="password"/>
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
+      </div>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button>
+  </form>
+  <button><span routerLink="/registro">
+    Registrarse
+  </span></button>
+</div>
