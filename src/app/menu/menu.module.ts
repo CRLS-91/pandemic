@@ -9,6 +9,7 @@ import { MenuRoutingModule } from './menu-routing.module';
   imports: [
     CommonModule,
     MenuRoutingModule
+    
   ]
 })
 export class MenuModule { }

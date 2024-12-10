@@ -6,6 +6,7 @@ import { InformacionComponent } from './informacion/informacion.component';
 import { SeleccionComponent } from './seleccion/seleccion.component';
 import { VersionComponent } from './version/version.component';
 
+
 const routes: Routes = [
   {path:'', component:InicioComponent},
   {path:'informacion',component:InformacionComponent},

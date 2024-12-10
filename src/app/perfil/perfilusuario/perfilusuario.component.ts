@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { inject } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-perfil-usuario',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './perfilusuario.component.html',
   styleUrl: './perfilusuario.component.css'
 })
