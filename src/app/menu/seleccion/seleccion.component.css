@@ -37,7 +37,7 @@ button {
     
    
    
-    padding: 12px 24px; /* Padding interno de 12px vertical y 24px horizontal */
+    padding: 10px 20px; /* Padding interno de 12px vertical y 24px horizontal */
     
     border-radius: 1.5rem; /* Bordes redondeados con un radio de 1.5rem */
     border: none; /* Sin borde */
@@ -48,7 +48,7 @@ button {
     
     transition: all 0.3s ease; /* Transición suave para todos los cambios en 0.3 segundos */
     
-    margin: 65px 0; /* Margen vertical de 16px */
+    margin: 55px 0; /* Margen vertical de 16px */
   }
   
   button:hover {
