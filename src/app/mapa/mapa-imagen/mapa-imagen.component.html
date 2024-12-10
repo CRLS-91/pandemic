@@ -24,14 +24,34 @@
 
  <!-- Itera sobre cada ciudad para crear un marcador en el mapa -->
 
-  <div
-    *ngFor="let ciudad of ciudades"
-    class="ciudad"
-    [style.top.px]="coordenadas[ciudad.name]?.top"
-    [style.left.px]="coordenadas[ciudad.name]?.left"
-    [attr.data-ciudad]="ciudad.name"
-  >
-  <div class="punto"></div> <!-- Elemento visual que representa la ciudad en el mapa -->
-  <span class="nombre">{{ ciudad.name }}</span> <!-- Muestra el nombre de la ciudad -->
+ <div
+  *ngFor="let ciudad of ciudades"
+  class="ciudad"
+  [style.top.px]="coordenadas[ciudad.name]?.top"
+  [style.left.px]="coordenadas[ciudad.name]?.left"
+  [attr.data-ciudad]="ciudad.name"
+>
+  <!-- 
+    Componente repetido para cada ciudad en la lista `ciudades`.
+    - `*ngFor="let ciudad of ciudades"`: Recorre el array `ciudades`, creando un elemento `<div>` por cada ciudad.
+    - `class="ciudad"`: Aplica la clase CSS `ciudad` para estilos relacionados con las ciudades en el mapa.
+    - `[style.top.px]="coordenadas[ciudad.name]?.top"`: Define la posición vertical (top) en píxeles de acuerdo con las coordenadas de la ciudad.
+    - `[style.left.px]="coordenadas[ciudad.name]?.left"`: Define la posición horizontal (left) en píxeles según las coordenadas de la ciudad.
+    - `[attr.data-ciudad]="ciudad.name"`: Añade un atributo personalizado `data-ciudad` con el nombre de la ciudad, útil para identificar elementos en el DOM.
+  -->
+
+  <div class="punto"></div>
+  <!-- 
+    Representa visualmente la ciudad en el mapa.
+    - `class="punto"`: Aplica estilos específicos para el marcador visual de la ciudad, generalmente un círculo o punto.
+  -->
+
+  <span class="nombre">{{ ciudad.name }}</span>
+  <!-- 
+    Muestra el nombre de la ciudad.
+    - `{{ ciudad.name }}`: Interpolación que inserta dinámicamente el nombre de la ciudad desde el objeto actual en el bucle `*ngFor`.
+    - `class="nombre"`: Aplica estilos específicos al nombre de la ciudad.
+  -->
 </div>
+
 </div>

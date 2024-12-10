@@ -1,47 +1,104 @@
 <div class="register">
+  <!-- Contenedor principal del formulario de registro -->
   <form [formGroup]="miFormulario" (ngSubmit)="enviar()" class="custom-form">
-    <h1>Registrarse</h1>
+    <!-- 'formGroup' vincula este formulario al objeto reactivo 'miFormulario' -->
+    <!-- '(ngSubmit)="enviar()"' ejecuta la función 'enviar()' cuando el formulario es enviado -->
+    <!-- 'class="custom-form"' aplica estilos personalizados al formulario -->
+    
+    <h1>Registrarse</h1> <!-- Título del formulario -->
 
     <!-- Campo de Nombre de Usuario -->
     <mat-form-field appearance="fill">
+      <!-- Contenedor para el input del nombre de usuario con estilo de Material Design -->
       <input matInput formControlName="nombre" placeholder="Nombre de usuario" />
+      <!-- Input que permite al usuario ingresar su nombre de usuario -->
+      <!-- 'formControlName="nombre"' lo vincula al FormControl llamado 'nombre' en el 'miFormulario' -->
+
       <div *ngIf="miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched">
-        <small *ngIf="miFormulario.get('nombre')?.errors?.['required']">El nombre es obligatorio (3-30 caracteres).</small>
-        <small *ngIf="miFormulario.get('nombre')?.errors?.['minlength']">El nombre debe tener al menos 3 caracteres.</small>
-        <small *ngIf="miFormulario.get('nombre')?.errors?.['maxlength']">El nombre no puede tener más de 30 caracteres.</small>
+        <!-- Muestra mensajes de error solo si el campo 'nombre' es inválido y ha sido tocado -->
+        <small *ngIf="miFormulario.get('nombre')?.errors?.['required']">
+          El nombre es obligatorio (3-30 caracteres).
+          <!-- Mensaje que se muestra si el campo está vacío ('required') -->
+        </small>
+        <small *ngIf="miFormulario.get('nombre')?.errors?.['minlength']">
+          El nombre debe tener al menos 3 caracteres.
+          <!-- Mensaje que se muestra si el texto es menor al mínimo permitido ('minlength') -->
+        </small>
+        <small *ngIf="miFormulario.get('nombre')?.errors?.['maxlength']">
+          El nombre no puede tener más de 30 caracteres.
+          <!-- Mensaje que se muestra si el texto supera el máximo permitido ('maxlength') -->
+        </small>
       </div>
     </mat-form-field>
 
     <!-- Campo de Email -->
     <mat-form-field appearance="fill">
+      <!-- Contenedor para el input del email con estilo de Material Design -->
       <input matInput formControlName="email" placeholder="Email" />
+      <!-- Input para que el usuario introduzca su correo electrónico -->
+      <!-- 'formControlName="email"' lo vincula al FormControl llamado 'email' en el 'miFormulario' -->
+
       <div *ngIf="miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched">
-        <small *ngIf="miFormulario.get('email')?.errors?.['required']">El correo es obligatorio.</small>
-        <small *ngIf="miFormulario.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small>
+        <!-- Muestra mensajes de error solo si el campo 'email' es inválido y ha sido tocado -->
+        <small *ngIf="miFormulario.get('email')?.errors?.['required']">
+          El correo es obligatorio.
+          <!-- Mensaje que se muestra si el campo está vacío ('required') -->
+        </small>
+        <small *ngIf="miFormulario.get('email')?.errors?.['email']">
+          Por favor, introduce un email válido.
+          <!-- Mensaje que se muestra si el formato del correo no es válido -->
+        </small>
       </div>
     </mat-form-field>
 
     <!-- Campo de Contraseña -->
     <mat-form-field appearance="fill">
+      <!-- Contenedor para el input de la contraseña con estilo de Material Design -->
       <input matInput formControlName="password" type="password" placeholder="Contraseña" />
+      <!-- Input que permite al usuario introducir una contraseña -->
+      <!-- 'formControlName="password"' lo vincula al FormControl llamado 'password' en el 'miFormulario' -->
+      <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
+
       <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
-        <small *ngIf="miFormulario.get('password')?.errors?.['required']">La contraseña es obligatoria.</small>
-        <small *ngIf="miFormulario.get('password')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</small>
+        <!-- Muestra mensajes de error solo si el campo 'password' es inválido y ha sido tocado -->
+        <small *ngIf="miFormulario.get('password')?.errors?.['required']">
+          La contraseña es obligatoria.
+          <!-- Mensaje que se muestra si el campo está vacío ('required') -->
+        </small>
+        <small *ngIf="miFormulario.get('password')?.errors?.['minlength']">
+          La contraseña debe tener al menos 6 caracteres.
+          <!-- Mensaje que se muestra si la longitud es menor a 6 caracteres -->
+        </small>
       </div>
     </mat-form-field>
 
     <!-- Campo de Confirmación de Contraseña -->
     <mat-form-field appearance="fill">
+      <!-- Contenedor para el input de confirmación de contraseña con estilo de Material Design -->
       <input matInput formControlName="confirmPassword" type="password" placeholder="Confirmar Contraseña" />
+      <!-- Input para que el usuario confirme su contraseña -->
+      <!-- 'formControlName="confirmPassword"' lo vincula al FormControl llamado 'confirmPassword' en el 'miFormulario' -->
+      <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
+
       <div *ngIf="miFormulario.hasError('passwordsMismatch') && miFormulario.get('confirmPassword')?.touched">
+        <!-- Muestra un mensaje de error si las contraseñas no coinciden y el campo fue tocado -->
         <small>Las contraseñas no coinciden.</small>
       </div>
     </mat-form-field>
 
     <!-- Botón de Registro -->
-    <button mat-raised-button color="primary" type="submit">Registrarse</button>
+    <button mat-raised-button color="primary" type="submit">
+      Registrarse
+      <!-- Botón que envía el formulario cuando es válido -->
+      <!-- 'mat-raised-button' aplica un estilo elevado de Material Design -->
+      <!-- 'color="primary"' asigna el color principal definido en los temas de Angular Material -->
+    </button>
 
-    <button routerLink="/login">Volver</button> 
+    <!-- Botón para volver al inicio de sesión -->
+    <button routerLink="/login">
+      Volver
+      <!-- Botón que redirige al usuario a la página de inicio de sesión -->
+      <!-- 'routerLink="/login"' navega hacia la ruta '/login' definida en las rutas de Angular -->
+    </button> 
   </form>
-  
 </div>

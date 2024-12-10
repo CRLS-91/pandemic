@@ -1,25 +1,78 @@
-
-<div class="login"> <!-- Contenedor principal para la sección de login -->
-  <form [formGroup]="loginForm" (ngSubmit)="irALogin()" class="custom-form"> <!-- Formulario de login, vinculado a un grupo de formularios y con un evento de envío -->
-    <h1>Login</h1> <!-- Título del formulario -->
+<div class="login"> 
+  <!-- Contenedor principal para la sección de login -->
+  
+  <form [formGroup]="loginForm" (ngSubmit)="irALogin()" class="custom-form">
+    <!-- Formulario de login -->
+    <!-- '[formGroup]="loginForm"' vincula este formulario al grupo reactivo 'loginForm' definido en el componente -->
+    <!-- '(ngSubmit)="irALogin()"' ejecuta la función 'irALogin()' cuando el formulario es enviado -->
+    <!-- 'class="custom-form"' aplica estilos personalizados al formulario -->
+    
+    <h1>Login</h1> 
+    <!-- Título del formulario -->
 
     <!-- Campo de Email -->
-    <mat-form-field appearance="fill"> <!-- Campo de formulario para el email con apariencia 'fill' -->
-      <input matInput formControlName="email" placeholder="Email" /> <!-- Campo de entrada para el email, vinculado al control 'email' -->
-      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"> <!-- Mensajes de error que se muestran si el campo es inválido y ha sido tocado -->
-        <small *ngIf="loginForm.get('email')?.errors?.['required']">El correo es obligatorio.</small> <!-- Mensaje de error si el campo es requerido -->
-        <small *ngIf="loginForm.get('email')?.errors?.['email']">Por favor, introduce un email válido.</small> <!-- Mensaje de error si el email no es válido -->
+    <mat-form-field appearance="fill"> 
+      <!-- Contenedor para el input del email con estilo de Material Design -->
+      <!-- 'appearance="fill"' define que el campo tenga un estilo de apariencia 'rellena' -->
+      
+      <input matInput formControlName="email" placeholder="Email" /> 
+      <!-- Input para que el usuario introduzca su email -->
+      <!-- 'matInput' es una directiva de Angular Material que aplica estilos al input -->
+      <!-- 'formControlName="email"' vincula el campo al control reactivo 'email' en 'loginForm' -->
+      <!-- 'placeholder="Email"' muestra un texto de guía dentro del campo -->
+      
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"> 
+        <!-- Sección que muestra mensajes de error -->
+        <!-- '*ngIf' asegura que esta sección solo se renderice si el campo 'email' es inválido y ha sido tocado -->
+
+        <small *ngIf="loginForm.get('email')?.errors?.['required']">
+          El correo es obligatorio.
+          <!-- Mensaje que se muestra si el campo 'email' está vacío (validación 'required') -->
+        </small>
+
+        <small *ngIf="loginForm.get('email')?.errors?.['email']">
+          Por favor, introduce un email válido.
+          <!-- Mensaje que se muestra si el correo electrónico no tiene un formato válido (validación 'email') -->
+        </small>
       </div>
     </mat-form-field>
 
-    <mat-form-field> <!-- Campo de formulario para la contraseña -->
-      <input matInput placeholder="Password" formControlName="password" type="password"/> <!-- Campo de entrada para la contraseña, vinculado al control 'password' -->
-      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"> <!-- Mensajes de error que se muestran si el campo es inválido y ha sido tocado -->
-        <small *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es obligatoria.</small> <!-- Mensaje de error si el campo es requerido -->
+    <!-- Campo de Contraseña -->
+    <mat-form-field> 
+      <!-- Contenedor para el input de la contraseña con estilo de Material Design -->
+      
+      <input matInput placeholder="Password" formControlName="password" type="password" /> 
+      <!-- Input para que el usuario introduzca su contraseña -->
+      <!-- 'matInput' aplica estilos de Angular Material al input -->
+      <!-- 'formControlName="password"' vincula el campo al control reactivo 'password' en 'loginForm' -->
+      <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
+      <!-- 'placeholder="Password"' muestra un texto de guía dentro del campo -->
+      
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"> 
+        <!-- Sección que muestra mensajes de error -->
+        <!-- '*ngIf' asegura que esta sección solo se renderice si el campo 'password' es inválido y ha sido tocado -->
+
+        <small *ngIf="loginForm.get('password')?.errors?.['required']">
+          La contraseña es obligatoria.
+          <!-- Mensaje que se muestra si el campo 'password' está vacío (validación 'required') -->
+        </small>
       </div>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Iniciar Sesión</button> <!-- Botón para enviar el formulario, con estilo de botón elevado -->
-    <button routerLink="/registro">Registrarse</button> <!-- Botón que redirige a la página de registro -->
+    <!-- Botón para Iniciar Sesión -->
+    <button mat-raised-button color="primary" type="submit">
+      Iniciar Sesión
+      <!-- Botón que envía el formulario si es válido -->
+      <!-- 'mat-raised-button' aplica un estilo elevado de Material Design -->
+      <!-- 'color="primary"' asigna el color principal definido en los temas de Angular Material -->
+      <!-- 'type="submit"' define que este botón envía el formulario al hacer clic -->
+    </button>
+
+    <!-- Botón para ir a la página de Registro -->
+    <button routerLink="/registro">
+      Registrarse
+      <!-- Botón que redirige al usuario a la página de registro -->
+      <!-- 'routerLink="/registro"' navega hacia la ruta '/registro' definida en las rutas de Angular -->
+    </button>
   </form>
 </div>
