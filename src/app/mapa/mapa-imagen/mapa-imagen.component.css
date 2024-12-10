@@ -14,7 +14,7 @@
   width: 80%; /* Ancho de la imagen del mapa al 80% del contenedor */
   height: 100%; /* Altura de la imagen del mapa al 100% del contenedor */
   position: relative; /* Posicionamiento relativo para permitir efectos de sombra */
-  filter: drop-shadow(0 0 10px rgba(0, 255, 76, 0.632)) /* Sombra verde brillante */
+  filter: drop-shadow(0 0 10px yellow) /* Sombra verde brillante */
          drop-shadow(0 0 20px rgba(238, 255, 0, 0.6)) /* Sombra amarilla */
          drop-shadow(0 0 30px rgba(170, 255, 0, 0.527)); /* Sombra verde claro */
   transition: 0.3s ease; /* Transición suave para efectos de hover */
@@ -22,8 +22,8 @@
 
 .map-image:hover {
   filter: drop-shadow(0 0 20px rgba(0, 255, 21, 0.512)) /* Sombra verde más intensa */
-         drop-shadow(0 0 40px rgba(0, 255, 255, 0.8)) /* Sombra cian */
-         drop-shadow(0 0 60px #09f1f199); /* Sombra verde claro más intensa */
+         drop-shadow(0 0 40px rgba(244, 240, 2, 0.8)) /* Sombra cian */
+         drop-shadow(0 0 60px #ed050599); /* Sombra verde claro más intensa */
 }
 
 .ciudad {
@@ -68,6 +68,6 @@
 }
 
 .linea line {
-  stroke: rgba(255, 255, 255, 0.325); /* Color celeste para las líneas, con opacidad para un mejor equilibrio visual */
+  stroke: rgba(237, 3, 3, 0.679); /* Color celeste para las líneas, con opacidad para un mejor equilibrio visual */
   stroke-width: 1.2; /* Grosor de la línea ajustado para mejor visibilidad y equilibrio */
 } /* Estilo para las líneas que conectan las ciudades */
