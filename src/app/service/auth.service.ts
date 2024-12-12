@@ -1,4 +1,4 @@
-// Importa la clase HttpClient para hacer peticiones HTTP.
+// Importa la clase HttpClient para hacer peticiones HTTP necesario para hacer lo de PHP.
 import { HttpClient } from '@angular/common/http';
 // Importa el decorador Injectable, necesario para que el servicio pueda ser inyectado.
 import { Injectable } from '@angular/core';
@@ -20,11 +20,11 @@ export class AuthService {
   // Define la URL base para las peticiones HTTP.
   private apiUrl = 'http://localhost/pandemic_back/'
 
-  // El constructor recibe una instancia de HttpClient para hacer peticiones HTTP.
+  // El constructor recibe una instancia de HttpClient para hacer peticiones HTTP hacerlo para lo php.
   constructor(private http: HttpClient) { }
 
   // Método para registrar un nuevo usuario. Recibe un objeto de tipo Usuario.
-  // Retorna un Observable de la respuesta de la petición HTTP.
+  // Retorna un Observable de la respuesta de la petición HTTP aqui usamos usuario que esta en model/usuario.models.ts que es el Usuario el mismo nombre que pusimos en el models.
   registro(usuario: Usuario): Observable<any> {
     // Realiza una solicitud HTTP POST al servidor utilizando HttpClient.
     return this.http.post(this.apiUrl + 'registro.php', JSON.stringify(usuario));

@@ -5,6 +5,22 @@ h1 {
   font-size: 50px; /* Define el tamaño de la fuente a 50px */
 }
 
+.campo .mat-form-field {
+  background-color: green !important;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.campo .mat-input-element {
+  color: rgb(13, 11, 11) !important;
+}
+
+.campo .mat-form-field-label {
+  color: rgb(11, 9, 9) !important;
+}
+
+
+
 .custom-form {
   width: 100%; /* Ancho completo del contenedor */
   height: 50%; /* Altura del contenedor al 50% del elemento padre */
@@ -35,12 +51,11 @@ h1 {
   
   padding: 16px; /* Padding interno de 16px */
   
-  color: #333; /* Color del texto dentro del input */
   font-size: 16px; /* Tamaño de la fuente a 16px */
 }
 
 .custom-form button {
-  background-color: black; /* Color de fondo negro para el botón */
+  
  
   text-transform: uppercase; /* Convierte el texto a mayúsculas */
   
@@ -78,6 +93,8 @@ h1 {
   
   box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.2); /* Sombra más pronunciada al pasar el mouse */
 }
+
+
 
 .login {
   background-color: black; /* Color de fondo negro para la sección de login */

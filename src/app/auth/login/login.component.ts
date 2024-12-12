@@ -24,7 +24,8 @@ import { RouterModule } from '@angular/router'; // Importa RouterModule para hab
     RouterModule  // Importa el módulo de enrutamiento para permitir la navegación entre diferentes componentes
   ],
   templateUrl: './login.component.html', // Especifica la ruta del archivo de plantilla HTML que define la vista del componente
-  styleUrls: ['./login.component.css'] // Especifica la ruta del archivo de estilos CSS que define el estilo del componente
+  styleUrls: ['./login.component.css'], // Especifica la ruta del archivo de estilos CSS que define el estilo del componente
+  
 })
 
 export class LoginComponent {

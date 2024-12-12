@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AuthService } from './auth.service';
+import { AuthService } from './auth.service';//tiene que estar importado
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -14,3 +14,5 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 });
+
+//no se toca
