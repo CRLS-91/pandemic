@@ -17,7 +17,7 @@ background-size: cover;
   
   align-items: center; /* Centra los elementos horizontalmente */
 
-  background-image: url("/images/virus.png"); /* Establece una imagen de fondo */
+  background-image: url("/images/coronavirus.jpg"); /* Establece una imagen de fondo */
 }
 
 /* From Uiverse.io by AnthonyPreite */ 
@@ -27,8 +27,8 @@ background-size: cover;
   width: 300px;
   height: 472px;
   padding: 25px;
-  background-color: #161616;
-  box-shadow: 0px 15px 60px #00FF7F;
+  background-color: #161616d1;
+  box-shadow: 0px 15px 60px #00ff80ae;
   outline: 1px solid #2b9962;
   border-radius: 10px;
 }
