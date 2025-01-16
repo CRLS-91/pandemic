@@ -1,13 +1,3 @@
-<<<<<<< Updated upstream
-=======
-
-h1 {
-  margin: 0; /* Elimina el margen por defecto del h1 */
-  padding: 20px; /* Añade un padding de 20px alrededor del texto */
-  color: #def10f; /* Establece el color del texto a un tono amarillo */
-  font-size: 50px; /* Define el tamaño de la fuente a 50px */
-}
->>>>>>> Stashed changes
 
 
 .login {
@@ -27,7 +17,6 @@ background-size: cover;
   
   align-items: center; /* Centra los elementos horizontalmente */
 
-<<<<<<< Updated upstream
   background-image: url("/images/virus.png"); /* Establece una imagen de fondo */
 }
 
@@ -146,7 +135,3 @@ background-size: cover;
 
 
     
-=======
-  background-image: url("/images/coronavirus.jpg"); /* Establece una imagen de fondo */
-}
->>>>>>> Stashed changes
