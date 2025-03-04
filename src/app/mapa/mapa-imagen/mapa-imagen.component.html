@@ -20,38 +20,109 @@
         </ng-container>
       </ng-container>
     </svg>
+ 
   </div>
 
  <!-- Itera sobre cada ciudad para crear un marcador en el mapa -->
-
+ 
  <div
-  *ngFor="let ciudad of ciudades"
-  class="ciudad"
-  [style.top.px]="coordenadas[ciudad.name]?.top"
-  [style.left.px]="coordenadas[ciudad.name]?.left"
-  [attr.data-ciudad]="ciudad.name"
->
-  <!-- 
+ *ngFor="let ciudad of ciudades"
+ class="ciudad"
+ [style.top.px]="coordenadas[ciudad.name]?.top"
+ [style.left.px]="coordenadas[ciudad.name]?.left"
+ [attr.data-ciudad]="ciudad.name"
+ >
+ <!-- 
     Componente repetido para cada ciudad en la lista `ciudades`.
     - `*ngFor="let ciudad of ciudades"`: Recorre el array `ciudades`, creando un elemento `<div>` por cada ciudad.
     - `class="ciudad"`: Aplica la clase CSS `ciudad` para estilos relacionados con las ciudades en el mapa.
     - `[style.top.px]="coordenadas[ciudad.name]?.top"`: Define la posición vertical (top) en píxeles de acuerdo con las coordenadas de la ciudad.
     - `[style.left.px]="coordenadas[ciudad.name]?.left"`: Define la posición horizontal (left) en píxeles según las coordenadas de la ciudad.
     - `[attr.data-ciudad]="ciudad.name"`: Añade un atributo personalizado `data-ciudad` con el nombre de la ciudad, útil para identificar elementos en el DOM.
-  -->
-
-  <div class="punto"></div>
+    -->
+    
+    <div class="punto" *ngIf="ciudad.infectionLevels.verde > 0">{{ ciudad.infectionLevels.verde }}</div>
+    <div class="punto2" *ngIf="ciudad.infectionLevels.azul > 0">{{ ciudad.infectionLevels.azul }}</div>
+    <div class="punto3" *ngIf="ciudad.infectionLevels.rojo > 0">{{ ciudad.infectionLevels.rojo }}</div>
   <!-- 
     Representa visualmente la ciudad en el mapa.
     - `class="punto"`: Aplica estilos específicos para el marcador visual de la ciudad, generalmente un círculo o punto.
   -->
 
-  <span class="nombre">{{ ciudad.name }}</span>
+  <button (click)="mostrarInformacionCiudad(ciudad)"><span class="nombre">{{ ciudad.name }}</span></button>
   <!-- 
     Muestra el nombre de la ciudad.
     - `{{ ciudad.name }}`: Interpolación que inserta dinámicamente el nombre de la ciudad desde el objeto actual en el bucle `*ngFor`.
     - `class="nombre"`: Aplica estilos específicos al nombre de la ciudad.
   -->
 </div>
+<!-------------------------------panel de ciudades------------------------------>
 
+<div class="city-info-container">
+  <!-- Movimientos en cada ronda -->
+  <div class="round-moves"><strong>Movimientos:</strong> {{ movimientosRestantes }}</div>
+
+  
+<!-- Sección para mostrar la información de la ciudad seleccionada -->
+<div *ngIf="ciudadSeleccionada">
+  <h3>{{ ciudadSeleccionada.name }}</h3>
+  <p><strong>Infección Verde:</strong> {{ ciudadSeleccionada.infectionLevels.verde }}</p>
+  <p><strong>Infección Azul:</strong> {{ ciudadSeleccionada.infectionLevels.azul }}</p>
+  <p><strong>Infección Rojo:</strong> {{ ciudadSeleccionada.infectionLevels.rojo }}</p>
 </div>
+
+  <!-- Panel de información de la ciudad -->
+  <div class="vacuna-container">
+    <button *ngIf="vacunaDesarrollada.verde" class="botonvacuna" (click)="curarCiudad(ciudadSeleccionada.name, 'verde')"><img  src="/images/vacunaverde.png" alt="Vacuna Verde" class="vacuna-imagen"></button>
+    <button *ngIf="vacunaDesarrollada.azul" class="botonvacuna" (click)="curarCiudad(ciudadSeleccionada.name, 'azul')"><img  src="/images/vacunaazul.png" alt="Vacuna Azul" class="vacuna-imagen"></button>
+    <button *ngIf="vacunaDesarrollada.rojo" class="botonvacuna" (click)="curarCiudad(ciudadSeleccionada.name, 'rojo')"><img  src="/images/vacunaroja.png" alt="Vacuna Roja" class="vacuna-imagen"></button>
+  </div>
+  
+  
+  <!-- Botones para desarrollar vacunas -->
+  <div class="vaccine-buttons">
+    <button class="vaccine-button" (click)="investigarVacuna('verde')" title="Investigar Vacuna Verde"><img src="/images/invesverde.png" class="investigacion"></button>
+    <button class="vaccine-button" (click)="investigarVacuna('azul')" title="Investigar Vacuna Azul"><img src="/images/invesazul.png" class="investigacion"></button>
+    <button class="vaccine-button" (click)="investigarVacuna('rojo')" title="Investigar Vacuna Roja"><img src="/images/invesrojo.png" class="investigacion"></button>
+  </div>
+</div>
+<!-----------------------icono de desarrollo------------------------------------>
+<div class="vaccine-progress-container" *ngIf="vacunaDesarrollada.verde">
+  <div class="vaccine-percentage">{{ progresoVacuna.verde }}%</div>
+  <div class="vaccine-icon"><img src="/images/desaverde.png" class="desarrollo"></div>
+</div>
+
+<div class="vaccine-progress-container1" *ngIf="vacunaDesarrollada.azul">
+  <div class="vaccine-percentage">{{ progresoVacuna.azul }}%</div>
+  <div class="vaccine-icon"><img src="/images/desaazul.png" class="desarrollo"></div>
+</div>
+
+<div class="vaccine-progress-container2" *ngIf="vacunaDesarrollada.rojo">
+  <div class="vaccine-percentage">{{ progresoVacuna.rojo }}%</div>
+  <div class="vaccine-icon"><img src="/images/desarojo.png" class="desarrollo"></div>
+</div>
+<!------panel de informacion---------------------------------------------------------------->
+
+<div class="round-info-container">
+  <div class="round-header">RONDA {{ rondaActual }}</div>
+  <ul class="round-infections-list">
+    <li *ngFor="let ciudad of ciudadesInfectadas">Se ha infectado {{ ciudad }}</li>
+    <li *ngFor="let propagacion of infeccionesPropagadas">⚠ Se ha propagado la infección en {{ propagacion }}</li>
+  </ul>
+</div>
+
+<!-----------boton ronda y brotes----------->
+<div class="infection-level-container">
+  <strong>Ciudades Infectadas con:</strong>
+  <div class="infection-level"> 
+    Virus Verde: {{ sumaVerde }} 
+  </div>
+  <div class="infection-level">
+    Virus Azul: {{ sumaAzul }}
+  </div>
+  <div class="infection-level">
+    Virus Rojo: {{ sumaRojo }}
+  </div>
+  <button class="round-button" (click)="pasarRonda()">Pasar Ronda</button>
+</div>
+

@@ -8,6 +8,7 @@
   display: flex; /* Utiliza flexbox para alinear elementos hijos */
   justify-content: center; /* Centra horizontalmente los elementos hijos */
   align-items: center; /* Centra verticalmente los elementos hijos */
+  
 }
 
 .map-image {
@@ -31,13 +32,24 @@
   display: flex; /* Utiliza flexbox para alinear el contenido dentro del marcador de ciudad */
   align-items: center; /* Centra verticalmente el contenido dentro del marcador */
   justify-content: center; /* Centra horizontalmente el contenido dentro del marcador */
-  background-color: cyan; /* Color de fondo cian para el marcador de ciudad */
-  border: 3px solid rgba(0, 255, 76, 0.632); /* Borde con color verde brillante */
-  padding: 4px; /* Espaciado interno del marcador */
-  border-radius: 20px; /* Bordes redondeados para el marcador */
+  background-color: rgb(255, 255, 255); /* Color de fondo cian para el marcador de ciudad */
+
+  
+
   transform: translate(-50%, -50%); /* Centra el marcador en su posición */
   cursor: pointer; /* Cambia el cursor a puntero al pasar sobre el marcador */
 }
+
+.punto{
+  background-color: rgb(0, 255, 34);
+}
+.punto2{
+  background-color: rgb(0, 110, 255);
+}
+.punto3{
+  background-color: rgb(255, 0, 0);
+}
+
 
 .ciudad .nombre {
   display: none; /* Oculta el nombre de la ciudad por defecto */
@@ -68,6 +80,424 @@
 }
 
 .linea line {
-  stroke: rgba(237, 3, 3, 0.679); /* Color celeste para las líneas, con opacidad para un mejor equilibrio visual */
+  stroke: rgba(255, 255, 255, 0.377); /* Color celeste para las líneas, con opacidad para un mejor equilibrio visual */
   stroke-width: 1.2; /* Grosor de la línea ajustado para mejor visibilidad y equilibrio */
 } /* Estilo para las líneas que conectan las ciudades */
+
+/*----------------------------------panel de ciudades-----------------------------*/
+
+.city-info-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.61);
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+  
+}
+
+.round-moves {
+  display:flex;
+  
+  gap: 5px;
+  margin-right: 10px;
+}
+
+
+
+.city-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+.vaccine-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.vaccine-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.vaccine-button:hover {
+  transform: scale(1.9);
+}
+/*----------------------------------icono de desarrollo---------------------------*/
+.vaccine-progress-container {
+  position:fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+}
+.vaccine-progress-container1 {
+  position:fixed;
+  top: 10px;
+  left: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+}.vaccine-progress-container2 {
+  position:fixed;
+  top: 10px;
+  left: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 8px;
+  color: white;
+}
+
+.vacuna-imagen {
+  width: 25px; /* Ajusta el tamaño según necesites */
+  height: 25px;
+}
+
+.botonvacuna{
+  margin-left: 15px;
+  margin-top: 10px;
+  display: flex;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.botonvacuna:hover {
+  transform: scale(1.9);
+}
+
+.desarrollo{
+  width: 25px; /* Ajusta el tamaño según necesites */
+  height: 25px;
+}
+
+.investigacion{
+  width: 30px; /* Ajusta el tamaño según necesites */
+  height: 30px;
+}
+
+.vaccine-progress {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 120px;
+}
+
+.vaccine-bar {
+  height: 10px;
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+
+.vaccine-percentage {
+  font-size: 14px;
+  font-weight: bold;
+  width: 30px;
+}
+/*----------------------------------panel informacion---------------------------*/
+
+.round-info-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.61);
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  width: 200px;
+  
+}
+
+.round-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.round-infections-list {
+  list-style: none;
+  padding: 0;
+  font-size: 14px;
+}
+
+.round-infections-list li {
+  margin-bottom: 3px;
+}
+/*-----------boton ronda y brotes-----------*/
+
+.infection-level-container {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.61);
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+}
+
+.infection-level {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.round-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.round-button:hover {
+  background: #dddddd;
+  transform: scale(1.2);
+}
+/*--------------------------------------------------*/
+/* Ajustes para pantallas medianas y pequeñas */
+@media (max-width: 768px) {
+  /* Ajustar el panel de ronda */
+  .round-info-container {
+    width: 90px;
+    font-size: 8px;
+    padding: 8px;
+    right: 10px;
+    top: 10px;
+  }
+
+  .round-header {
+    font-size: 8px;
+  }
+
+  .round-infections-list {
+    font-size: 8px;
+  }
+
+  /* Ajustar el panel de infecciones */
+  .infection-level-container {
+    left: 10px;
+    top: 40%;
+    width: 90px;
+    font-size: 8px;
+  }
+
+  .infection-level {
+    font-size: 8px;
+  }
+
+
+  /* Ajustar el botón de pasar ronda */
+  .round-button {
+    padding: 4px 8px;
+    font-size: 8px;
+  }
+
+  /* Ajustes para la información de la ciudad */
+  .city-info-container {
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    
+    font-size: 8px;
+    padding: 8px;
+    
+  }
+    /* Ajustar el panel de movimientos */
+    .round-moves {
+      font-size: 8px;
+      border-radius: 5px;
+    }
+
+  .vacuna-container {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .botonvacuna img {
+    width: 15px;
+    height: 15px;
+  }
+  .investigacion{
+    width: 15px; /* Ajusta el tamaño según necesites */
+    height: 15px;
+  }
+
+  
+
+  .vaccine-button img {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* Ajustes específicos para pantallas muy pequeñas */
+@media (max-width: 667px) {
+  .round-info-container {
+    width: 120px;
+    font-size: 8px;
+    padding: 4px;
+    right: 3px;
+    top: 3px;
+  }
+
+  .round-header {
+    font-size: 8px;
+  }
+
+  .round-infections-list {
+    font-size: 8px;
+  }
+
+  .infection-level-container {
+    left: 5px;
+    top: 65%;
+    width: 130px;
+    font-size: 8px;
+    padding: 4px;
+  }
+
+  .infection-level {
+    font-size: 8px;
+  }
+
+  .round-moves {
+    font-size: 8px;
+    margin-right: 3px;
+    bottom: 20px;
+    left: 5px;
+  }
+
+  .round-button {
+    padding: 3px 6px;
+    font-size: 10px;
+  }
+
+  /* Ajustes para la información de la ciudad */
+  .city-info-container {
+    width: 95%;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .vacuna-container {
+    gap: 5px;
+  }
+
+  .botonvacuna img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vaccine-buttons {
+    gap: 4px;
+    margin-top: 3px;
+  }
+
+  .vaccine-button img {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+/* Ajustes específicos para pantallas de 546x256 */
+@media (max-width: 546px) {
+  /* Ajustar el panel de ronda */
+  .round-info-container {
+    width: 140px;
+    font-size: 9px;
+    padding: 5px;
+    right: 5px;
+    top: 5px;
+  }
+
+  .round-header {
+    font-size: 11px;
+  }
+
+  .round-infections-list {
+    font-size: 9px;
+  }
+
+  /* Ajustar el panel de infecciones */
+  .infection-level-container {
+    left: 5px;
+    top: 70%;
+    width: 120px;
+    font-size: 9px;
+    padding: 5px;
+  }
+
+  .infection-level {
+    font-size: 9px;
+  }
+
+  /* Ajustar el panel de movimientos */
+  .round-moves {
+    font-size: 9px;
+    margin-right: 3px;
+    position: absolute;
+    bottom: 35px;
+    left: 5px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  /* Ajustar el botón de pasar ronda */
+  .round-button {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  /* Ajustes para la información de la ciudad */
+  .city-info-container {
+    width: 60%;
+    font-size: 9px;
+    padding: 5px;
+  }
+
+  .vacuna-container {
+    gap: 5px;
+  }
+
+  .botonvacuna img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .vaccine-buttons {
+    gap: 4px;
+    margin-top: 3px;
+  }
+
+  .vaccine-button img {
+    width: 20px;
+    height: 20px;
+  }
+}
