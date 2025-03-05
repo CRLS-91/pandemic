@@ -1,123 +1,140 @@
-/* Estilo para el encabezado h1 */
-h1 {
-  margin: 0;
-  padding: 20px;
-  color: #def10f;
-  font-size: 50px; /* Tamaño predeterminado */
-}
 
-/* Estilo para el formulario personalizado */
-.custom-form {
-  width: 100%;
-  height: 50%;
-  min-width: 300px;
-  max-width: 60%;
-  margin: 0px auto;
-  padding: 32px 48px;
-  border-radius: 40px;
-  background-color: #0000009a;
-  box-shadow: 13px 13px 20px #f20f03, -13px -13px 20px yellow;
-  color: red;
-  margin-top: 160px;
-}
 
-/* Estilo para los campos de entrada dentro del formulario */
-.custom-form input {
-  display: block;
-  margin: 32px 0;
-  width: 100%;
-  border-radius: 8px;
-  padding: 16px;
-  color: #333;
-  font-size: 16px;
-}
-
-/* Estilo para los botones */
-.custom-form button {
-  background-color: black;
-  text-transform: uppercase;
-  letter-spacing: 2.4px;
-  font-size: 14px;
-  color: #0a0606;
-  font-weight: bold;
-  background-color: #def10f;
-  width: 100%;
-  display: block;
-  padding: 12px 24px;
-  border-radius: 24px; /* 1.5rem convertido a px */
-  border: none;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin: 16px 0;
-}
-
-/* Hover para los botones */
-.custom-form button:hover {
-  background-color: #0a74da;
-  color: #ffffffb6;
-  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.4), -6px -6px 12px rgba(255, 255, 255, 0.2);
-}
-
-/* Fondo de la sección de registro */
-.register {
-  background-color: black;
-  background-position: center;
-  height: 100vh;
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url("/images/virus.png");
-}
-
-/* Responsividad para tablets */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 40px; /* Tamaño del encabezado reducido */
+.login {
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+    height: 100vh; /* Altura completa de la ventana del navegador */
+    
+    width: 100vw; /* Ancho completo de la sección */
+    
+    text-align: center; /* Centra el texto horizontalmente */
+    
+    display: flex; /* Utiliza flexbox para el diseño */
+    
+    flex-direction: column; /* Organiza los elementos en una columna */
+   justify-content: center; /* Centra los elementos verticalmente */
+    
+    align-items: center; /* Centra los elementos horizontalmente */
+  
+    background-image: url("/images/coronavirus.jpg"); /* Establece una imagen de fondo */
   }
   
-  .custom-form {
-    max-width: 80%; /* Formularios más anchos en pantallas pequeñas */
-    margin-top: 100px; /* Ajuste del margen superior */
-    padding: 24px 32px; /* Padding reducido */
-  }
-
-  .custom-form input {
-    margin: 24px 0; /* Menor separación entre campos */
-    padding: 12px; /* Padding interno reducido */
-    font-size: 14px; /* Fuente más pequeña */
-  }
-
-  .custom-form button {
-    font-size: 12px; /* Tamaño del texto reducido */
-    padding: 10px 20px; /* Botón más compacto */
-  }
+small{
+  color: white;
 }
 
-/* Responsividad para móviles */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 20px; /* Encabezado aún más pequeño */
-    padding: 5px; /* Padding reducido */
+  /* From Uiverse.io by AnthonyPreite */ 
+  #form {
+    display: grid;
+    place-items: center;
+    width: 300px;
+    height: 472px;
+    padding: 25px;
+    background-color: #161616d1;
+    box-shadow: 0px 15px 60px #00ff80ae;
+    outline: 1px solid #2b9962;
+    border-radius: 10px;
   }
-
-  .custom-form {
-    max-width: 90%; /* Formularios más anchos en pantallas pequeñas */
-    margin-top: 5px; /* Ajuste del margen superior */
-    padding: 5px; /* Padding reducido */
+  
+  #form-body {
+    position: absolute;
+    top: 40%;
+    right: 25px;
+    left: 25px;
+    width: 230px;
+    margin: -156px auto 0 auto;
   }
-
-  .custom-form input {
-    margin: 5px 0; /* Menor separación entre campos */
-    padding: 0px; /* Padding interno reducido */
-    font-size: 5px; /* Fuente más pequeña */
+  
+  #welcome-lines {
+    text-align: center;
+    line-height: 1;
   }
-
-  .custom-form button {
-    font-size: 10px; /* Texto más pequeño */
-    padding: 5px 5px; /* Botón más compacto */
+  
+  #welcome-line-1 {
+    color: #00FF7F;
+    font-weight: 600;
+    font-size: 40px;
+    
   }
-}
+  
+  #welcome-line-2 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  #input-area {
+    margin-top: 20px;
+  }
+  
+  .form-inp {
+    padding: 11px 15px;
+    background: transparent;
+    border: 1px solid #e3e3e3;
+    line-height: 1;
+    border-radius: 8px;
+  }
+  
+  .form-inp:focus {
+    border: 1px solid #00FF7F;
+  }
+  
+  .form-inp:first-child {
+    margin-bottom: 15px;
+  }
+  
+  .form-inp input {
+    width: 100%;
+    background: none;
+    font-size: 13.4px;
+    color: #00FF7F;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .form-inp input:focus {
+    outline: none;
+  }
+  
+  #submit-button-cvr {
+    margin-top: 20px;
+  }
+  
+  #submit-button {
+    display: block;
+    width: 100%;
+    color: #00FF7F;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    padding: 14px 13px 12px 13px;
+    border: 0;
+    outline: 1px solid #00FF7F;
+    border-radius: 8px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+  }
+  
+  #submit-button:hover {
+    transition: all ease-in-out .3s;
+    background-color: #00FF7F;
+    color: #161616;
+    cursor: pointer;
+  }
+  
+  #forgot-pass {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  #forgot-pass a {
+    color: #868686;
+    font-size: 12px;
+    text-decoration: none;
+  }
+  
+  

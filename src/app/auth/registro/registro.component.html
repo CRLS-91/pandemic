@@ -1,182 +1,119 @@
-<div class="register">
-  <!-- Contenedor principal del formulario de registro -->
-  <form [formGroup]="miFormulario" (ngSubmit)="enviar()" class="custom-form">
-    <!-- 'formGroup' vincula este formulario al objeto reactivo 'miFormulario' -->
-    <!-- '(ngSubmit)="enviar()"' ejecuta la función 'enviar()' cuando el formulario es enviado -->
-    <!-- 'class="custom-form"' aplica estilos personalizados al formulario -->
-    
-    <h1>Registrarse</h1> <!-- Título del formulario -->
+<div class="login">
+  <div id="form-ui">
+    <!-- Contenedor principal del formulario de registro -->
+    <form id="form" [formGroup]="miFormulario" (ngSubmit)="enviar()">
+      <!-- 'formGroup' vincula este formulario al objeto reactivo 'miFormulario' -->
+      <!-- '(ngSubmit)="enviar()"' ejecuta la función 'enviar()' cuando el formulario es enviado -->
+      <!-- 'class="custom-form"' aplica estilos personalizados al formulario -->
+      <div id="form-body">
+        <div id="welcome-lines">
+          <div id="welcome-line-1">Registro</div>
+          <div id="welcome-line-2">Bienvenido a Pandemic</div>
 
-    <!-- Campo de Nombre de Usuario -->
-    <mat-form-field appearance="fill">
-      <!-- Contenedor para el input del nombre de usuario con estilo de Material Design -->
-      <input matInput formControlName="nombre" placeholder="Nombre de usuario" />
-      <!-- Input que permite al usuario ingresar su nombre de usuario -->
-      <!-- 'formControlName="nombre"' lo vincula al FormControl llamado 'nombre' en el 'miFormulario' -->
+          <!-- Campo de Nombre de Usuario -->
 
-      <div *ngIf="miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched">
-        <!-- Muestra mensajes de error solo si el campo 'nombre' es inválido y ha sido tocado -->
-        <small *ngIf="miFormulario.get('nombre')?.errors?.['required']">
-          El nombre es obligatorio (3-30 caracteres).
-          <!-- Mensaje que se muestra si el campo está vacío ('required') -->
-        </small>
-        <small *ngIf="miFormulario.get('nombre')?.errors?.['minlength']">
-          El nombre debe tener al menos 3 caracteres.
-          <!-- Mensaje que se muestra si el texto es menor al mínimo permitido ('minlength') -->
-        </small>
-        <small *ngIf="miFormulario.get('nombre')?.errors?.['maxlength']">
-          El nombre no puede tener más de 30 caracteres.
-          <!-- Mensaje que se muestra si el texto supera el máximo permitido ('maxlength') -->
-        </small>
+          <!-- Contenedor para el input del nombre de usuario con estilo de Material Design -->
+          <div id="input-area">
+            <div class="form-inp">
+              <input formControlName="nombre" placeholder="Nombre de usuario" />
+            </div>
+          </div>
+
+          <!-- Input que permite al usuario ingresar su nombre de usuario -->
+          <!-- 'formControlName="nombre"' lo vincula al FormControl llamado 'nombre' en el 'miFormulario' -->
+
+          <div *ngIf="miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched">
+            <!-- Muestra mensajes de error solo si el campo 'nombre' es inválido y ha sido tocado -->
+            <small *ngIf="miFormulario.get('nombre')?.errors?.['required']">
+              El nombre es obligatorio (3-30 caracteres).
+              <!-- Mensaje que se muestra si el campo está vacío ('required') -->
+            </small>
+            <small *ngIf="miFormulario.get('nombre')?.errors?.['minlength']">
+              El nombre debe tener al menos 3 caracteres.
+              <!-- Mensaje que se muestra si el texto es menor al mínimo permitido ('minlength') -->
+            </small>
+            <small *ngIf="miFormulario.get('nombre')?.errors?.['maxlength']">
+              El nombre no puede tener más de 30 caracteres.
+              <!-- Mensaje que se muestra si el texto supera el máximo permitido ('maxlength') -->
+            </small>
+          </div>
+
+          <!-- Campo de Email -->
+          <div id="input-area">
+            <div class="form-inp">
+              <input formControlName="email" placeholder="Email" />
+            </div>
+
+            <!-- Contenedor para el input del email con estilo de Material Design -->
+
+            <!-- Input para que el usuario introduzca su correo electrónico -->
+            <!-- 'formControlName="email"' lo vincula al FormControl llamado 'email' en el 'miFormulario' -->
+
+            <div *ngIf="miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched">
+              <!-- Muestra mensajes de error solo si el campo 'email' es inválido y ha sido tocado -->
+              <small *ngIf="miFormulario.get('email')?.errors?.['required']">
+                El correo es obligatorio.
+                <!-- Mensaje que se muestra si el campo está vacío ('required') -->
+              </small>
+              <small *ngIf="miFormulario.get('email')?.errors?.['email']">
+                Por favor, introduce un email válido.
+                <!-- Mensaje que se muestra si el formato del correo no es válido -->
+              </small>
+            </div>
+
+
+            <!-- Campo de Contraseña -->
+            <div class="form-inp">
+              <input formControlName="password" type="password" placeholder="Contraseña" />
+            </div>
+            <!-- Contenedor para el input de la contraseña con estilo de Material Design -->
+
+            <!-- Input que permite al usuario introducir una contraseña -->
+            <!-- 'formControlName="password"' lo vincula al FormControl llamado 'password' en el 'miFormulario' -->
+            <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
+
+            <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
+              <!-- Muestra mensajes de error solo si el campo 'password' es inválido y ha sido tocado -->
+              <small *ngIf="miFormulario.get('password')?.errors?.['required']">
+                La contraseña es obligatoria.
+                <!-- Mensaje que se muestra si el campo está vacío ('required') -->
+              </small>
+              <small *ngIf="miFormulario.get('password')?.errors?.['minlength']">
+                La contraseña debe tener al menos 6 caracteres.
+                <!-- Mensaje que se muestra si la longitud es menor a 6 caracteres -->
+              </small>
+            </div>
+
+
+            <!-- Campo de Confirmación de Contraseña -->
+            <div class="form-inp">
+              <input formControlName="confirmPassword" type="password" placeholder="Confirmar Contraseña" />
+            </div>
+            <!-- Contenedor para el input de confirmación de contraseña con estilo de Material Design -->
+
+            <!-- Input para que el usuario confirme su contraseña -->
+            <!-- 'formControlName="confirmPassword"' lo vincula al FormControl llamado 'confirmPassword' en el 'miFormulario' -->
+            <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
+
+            <div *ngIf="miFormulario.hasError('passwordsMismatch') && miFormulario.get('confirmPassword')?.touched">
+              <!-- Muestra un mensaje de error si las contraseñas no coinciden y el campo fue tocado -->
+              <small>Las contraseñas no coinciden.</small>
+            </div>
+
+            <!-- Botón de Registro -->
+            <div id="submit-button-cvr">
+              <button id="submit-button" type="submit">Registrarse</button>
+            </div>
+            <!-- Botón para volver al inicio de sesión -->
+            <div id="submit-button-cvr">
+              <button id="submit-button" routerLink="/login">Login</button>
+            </div>
+
+          </div>
+        </div>
+
       </div>
-    </mat-form-field>
+    </form>
 
-    <!-- Campo de Email -->
-    <mat-form-field appearance="fill">
-      <!-- Contenedor para el input del email con estilo de Material Design -->
-      <input matInput formControlName="email" placeholder="Email" />
-      <!-- Input para que el usuario introduzca su correo electrónico -->
-      <!-- 'formControlName="email"' lo vincula al FormControl llamado 'email' en el 'miFormulario' -->
-
-      <div *ngIf="miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched">
-        <!-- Muestra mensajes de error solo si el campo 'email' es inválido y ha sido tocado -->
-        <small *ngIf="miFormulario.get('email')?.errors?.['required']">
-          El correo es obligatorio.
-          <!-- Mensaje que se muestra si el campo está vacío ('required') -->
-        </small>
-        <small *ngIf="miFormulario.get('email')?.errors?.['email']">
-          Por favor, introduce un email válido.
-          <!-- Mensaje que se muestra si el formato del correo no es válido -->
-        </small>
-      </div>
-    </mat-form-field>
-
-    <!-- Campo de Contraseña -->
-    <mat-form-field appearance="fill">
-      <!-- Contenedor para el input de la contraseña con estilo de Material Design -->
-      <input matInput formControlName="password" type="password" placeholder="Contraseña" />
-      <!-- Input que permite al usuario introducir una contraseña -->
-      <!-- 'formControlName="password"' lo vincula al FormControl llamado 'password' en el 'miFormulario' -->
-      <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
-
-      <div *ngIf="miFormulario.get('password')?.invalid && miFormulario.get('password')?.touched">
-        <!-- Muestra mensajes de error solo si el campo 'password' es inválido y ha sido tocado -->
-        <small *ngIf="miFormulario.get('password')?.errors?.['required']">
-          La contraseña es obligatoria.
-          <!-- Mensaje que se muestra si el campo está vacío ('required') -->
-        </small>
-        <small *ngIf="miFormulario.get('password')?.errors?.['minlength']">
-          La contraseña debe tener al menos 6 caracteres.
-          <!-- Mensaje que se muestra si la longitud es menor a 6 caracteres -->
-        </small>
-      </div>
-    </mat-form-field>
-
-    <!-- Campo de Confirmación de Contraseña -->
-    <mat-form-field appearance="fill">
-      <!-- Contenedor para el input de confirmación de contraseña con estilo de Material Design -->
-      <input matInput formControlName="confirmPassword" type="password" placeholder="Confirmar Contraseña" />
-      <!-- Input para que el usuario confirme su contraseña -->
-      <!-- 'formControlName="confirmPassword"' lo vincula al FormControl llamado 'confirmPassword' en el 'miFormulario' -->
-      <!-- 'type="password"' oculta el texto ingresado para mayor seguridad -->
-
-      <div *ngIf="miFormulario.hasError('passwordsMismatch') && miFormulario.get('confirmPassword')?.touched">
-        <!-- Muestra un mensaje de error si las contraseñas no coinciden y el campo fue tocado -->
-        <small>Las contraseñas no coinciden.</small>
-      </div>
-    </mat-form-field>
-
-    <!-- Botón de Registro -->
-    <button mat-raised-button color="primary" type="submit">
-      Registrarse
-      <!-- Botón que envía el formulario cuando es válido -->
-      <!-- 'mat-raised-button' aplica un estilo elevado de Material Design -->
-      <!-- 'color="primary"' asigna el color principal definido en los temas de Angular Material -->
-    </button>
-
-    <!-- Botón para volver al inicio de sesión -->
-    <button routerLink="/login">
-      Volver
-      <!-- Botón que redirige al usuario a la página de inicio de sesión -->
-      <!-- 'routerLink="/login"' navega hacia la ruta '/login' definida en las rutas de Angular -->
-    </button> 
-  </form>
+  </div>
 </div>
- 
-<!--
-
-# Instala Angular CLI globalmente en tu sistema
-npm install -g @angular/cli
-
-# Verifica la versión actual de Angular CLI instalada
-ng version
-
-# Crea un nuevo proyecto Angular
-ng new nombre-proyecto # Inicia un nuevo proyecto, configurando estilos y routing si lo deseas
-
-# Navega al directorio del proyecto recién creado
-cd nombre-proyecto
-
-# Ejecuta la aplicación en modo desarrollo
-ng serve # Inicia un servidor local en http://localhost:4200
-
-# Genera un nuevo componente
-ng generate component nombre-componente # Crea un componente con archivos .html, .ts, .css y .spec.ts
-# Atajo
-ng g c nombre-componente
-
-# Genera un nuevo servicio
-ng generate service nombre-servicio # Crea un servicio .ts para lógica de negocio y datos
-# Atajo
-ng g s nombre-servicio
-
-# Genera un nuevo módulo
-ng generate module nombre-modulo # Crea un módulo para organizar componentes y funcionalidades
-# Atajo
-ng g m nombre-modulo
-
-# Construye el proyecto para producción
-ng build --prod # Optimiza el proyecto y lo prepara para ser desplegado
-
-# Agrega Angular Material al proyecto
-ng add @angular/material # Instala y configura Angular Material
-
-# Genera un módulo de rutas
-ng generate module nombre-modulo --routing # Crea un módulo con soporte para rutas
-# Atajo
-ng g m nombre-modulo --routing
-
-# Crea un guard para proteger rutas
-ng generate guard nombre-guard # Crea un archivo para lógica de protección de rutas
-# Atajo
-ng g g nombre-guard
-
-# Actualiza Angular y sus dependencias a la última versión
-ng update @angular/core @angular/cli
-
-# Ejecuta pruebas unitarias
-ng test # Corre las pruebas unitarias configuradas con Karma y Jasmine
-
-# Ejecuta pruebas de integración
-ng e2e # Corre las pruebas de integración configuradas con Protractor
-
-# Limpia la caché de Angular
-ng cache clean # Borra los archivos en caché para solucionar problemas de construcción
-
-# Analiza el rendimiento del proyecto en producción
-ng build --prod --stats-json # Genera un archivo de estadísticas
-npx source-map-explorer dist/nombre-proyecto/main.js # Analiza el tamaño de los archivos generados
-
-# Sirve la aplicación en una dirección específica y puerto customizado
-ng serve --host 0.0.0.0 --port 4201 # Cambia host y puerto según tus necesidades
-
-# Genera un interceptor para modificar peticiones HTTP
-ng generate interceptor nombre-interceptor # Crea un interceptor para manejar peticiones y respuestas HTTP
-# Atajo
-ng g i nombre-interceptor
-
-----codigo para instalar angular material-----
-ng add @angular/material
-
-
--->
