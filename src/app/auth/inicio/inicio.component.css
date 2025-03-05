@@ -1,61 +1,100 @@
-
 .todo {
     /* Establece un color de fondo negro para el contenedor */
+    /* Este color de fondo ayuda a resaltar los elementos dentro del contenedor */
     background-color: black;
+
     /* Centra la imagen de fondo en el contenedor */
+    /* Esto asegura que la imagen de fondo esté siempre visible y bien posicionada */
     background-position: center;
+
     /* Ajusta el tamaño de la imagen de fondo para cubrir todo el contenedor */
+    /* Esto permite que la imagen de fondo no se distorsione y se mantenga proporcional */
     background-size: cover;
+
     /* Establece la altura del contenedor para ocupar toda la altura de la pantalla */
+    /* Esto asegura que el contenedor siempre llene la vista del usuario */
     height: 100vh; 
+
     /* Establece el ancho del contenedor para ocupar todo el ancho de la pantalla */
+    /* Esto permite que el contenedor se adapte a diferentes tamaños de pantalla */
     width: 100%;
+
     /* Alinea el texto al centro del contenedor */
+    /* Esto mejora la presentación visual del contenido dentro del contenedor */
     text-align: center;
+
     /* Utiliza flexbox para alinear los elementos dentro del contenedor */
+    /* Flexbox permite una distribución más eficiente de los elementos en el contenedor */
     display: flex;
+
     /* Organiza los elementos en una columna */
+    /* Esto es útil para mantener una estructura vertical en el diseño */
     flex-direction: column; 
+
     /* Centra verticalmente todos los elementos dentro del contenedor */
+    /* Esto mejora la estética y la usabilidad del diseño */
     justify-content: center; 
+
     /* Centra horizontalmente todos los elementos dentro del contenedor */
+    /* Esto asegura que todos los elementos estén bien alineados en el centro */
     align-items: center; 
+
     /* Establece un espacio entre los elementos dentro del contenedor */
+    /* Esto ayuda a evitar que los elementos se vean amontonados */
     gap: 5px; /* Espacio entre el logo y el botón */
 }
 
 /* Estilo para las imágenes dentro del contenedor */
 img {
     /* Ajusta la altura máxima de la imagen para evitar que ocupe toda la pantalla */
+    /* Esto asegura que la imagen no interfiera con otros elementos en la vista */
     max-height: 90%; 
+
     /* Ajusta el ancho máximo de la imagen para que no exceda el contenedor */
+    /* Esto mantiene la imagen dentro de los límites del diseño */
     max-width: 90%;
 }
 
-/* Estilo para los botones */
-button {
+.submit-button-cvr {
+    margin-top: 0px;
+
     /* Establece la altura de los botones */
+    /* Esto asegura que los botones sean fácilmente clicables y visibles */
     height: 50px;
+
     /* Establece el ancho de los botones */
-    width: 150px;
-    /* Cambia el cursor a puntero al pasar sobre el botón */
-    cursor: pointer;
-    /* Establece el color de fondo del botón */
-    background-color: white;
-    /* Establece el color del texto del botón */
-    color: black;
-    /* Establece el tamaño de la fuente del texto en el botón */
-    font-size: 19px;
-    /* Establece bordes redondeados para el botón */
-    border-radius: 5px; /* Bordes redondeados */
-    /* Elimina el borde predeterminado del botón */
-    border: none;
-    /* Establece una transición suave para el cambio de color de fondo al pasar el mouse */
-    transition: background-color 0.3s ease; /* Transición suave en hover */
+    /* Esto proporciona un tamaño consistente para todos los botones en el diseño */
+    width: 200px;
+    margin-bottom: 90px;
 }
 
-/* Estilo para el efecto hover del botón */
-button:hover {
-    /* Cambia el color de fondo del botón al pasar el mouse sobre él */
-    background-color: yellow; /* Efecto hover opcional */
+.submit-button {
+    display: block;
+    width: 100%;
+    color: #00FF7F;
+
+    /* Establece el color de fondo del botón */
+    /* El color de fondo cambia al pasar el mouse para mejorar la interactividad */
+    background-color: transparent;
+
+    font-weight: 600;
+    font-size: 14px;
+    margin: 20px;
+    padding: 14px 13px 12px 13px;
+    border: 0;
+    outline: 1px solid #00FF7F;
+    border-radius: 8px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+.submit-button:hover {
+    transition: all ease-in-out .3s;
+
+    /* Cambia el color de fondo y el texto al pasar el mouse sobre el botón */
+    /* Esto mejora la experiencia del usuario al interactuar con el botón */
+    background-color: #00FF7F;
+    color: #161616;
+    cursor: pointer;
 }

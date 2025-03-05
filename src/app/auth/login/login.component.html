@@ -1,31 +1,52 @@
-
 <div class="login"> 
-  <!-- Contenedor principal para la sección de login -->
-   <!--prueba funciona-->
+  <!-- 🔹 Contenedor principal de la pantalla de Login -->
+  <!-- 🔹 Se usa la clase "login" para aplicar estilos CSS generales -->
+  
   <div id="form-ui">
+    <!-- 🔹 Contenedor del formulario de inicio de sesión -->
+    
     <form action="" method="post" id="form">
+      <!-- 🔹 Formulario donde se ingresan los datos del usuario -->
+      <!-- 🔹 action="" -> No se envía a un backend todavía -->
+      <!-- 🔹 method="post" -> Se usará para enviar datos cuando haya un backend -->
+
       <div id="form-body">
+        <!-- 🔹 Contenedor interno del formulario -->
+        
         <div id="welcome-lines">
-          <div id="welcome-line-1">Login</div>
-          <div id="welcome-line-2">Bienvenido a Pandemic</div>
+          <!-- 🔹 Títulos de bienvenida -->
+          <div id="welcome-line-1">Login</div> <!-- 🔹 Título principal -->
+          <div id="welcome-line-2">Bienvenido a Pandemic</div> <!-- 🔹 Subtítulo -->
         </div>
+
         <div id="input-area">
+          <!-- 🔹 Área donde se encuentran los campos de entrada (email y contraseña) -->
+
           <div class="form-inp">
+            <!-- 🔹 Input para ingresar el email -->
             <input placeholder="Email Address" type="text">
           </div>
+
           <div class="form-inp">
+            <!-- 🔹 Input para ingresar la contraseña -->
             <input placeholder="Password" type="password">
           </div>
         </div>
-        <div id="submit-button-cvr">
-          <button id="submit-button" type="submit" routerLink="//menu/seleccion">Login</button>
+
+        <div class="submit-button-cvr">
+          <!-- 🔹 Botón de Login -->
+          <button class="submit-button" type="submit" routerLink="//menu/seleccion">Login</button>
+          <!-- 🔹 Este botón debería manejar la autenticación antes de redirigir -->
         </div>
-        <div id="submit-button-cvr">
-          <button id="submit-button" type="submit" routerLink="/registro">Registrarse</button>
+
+        <div class="submit-button-cvr">
+          <!-- 🔹 Botón para ir a la página de registro -->
+          <button class="submit-button" type="submit" routerLink="/registro">Registrarse</button>
+          <!-- 🔹 Permite a un nuevo usuario registrarse -->
         </div>
-        
+
       </div>
     </form>
-    </div>
- 
+
+  </div>
 </div>

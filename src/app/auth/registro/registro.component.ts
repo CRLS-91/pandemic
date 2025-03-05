@@ -50,9 +50,18 @@ enviar() {
     this.authServive.registro(usuario).subscribe(
       response => {
         // Maneja la respuesta del backend (éxito o error)
-        console.log(response); // Muestra la respuesta en la consola (puedes adaptarlo para mostrar un mensaje en la interfaz)
+        console.log(response);
+        alert(response.message);
+        this.miFormulario.reset(); // Limpia el formulario después del registro
+      },
+      error => {
+        console.error('Error:', error);
+        alert('Error al conectar con el servidor.');
       }
-    );
+    ).add(() => {
+      console.log("Registro completado.");
+    });
+    
 
   } else {
     // Si el formulario no es válido, muestra un mensaje de error en la consola

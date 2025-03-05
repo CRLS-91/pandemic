@@ -1,7 +1,9 @@
 <div class="login">
   <div id="form-ui">
     <!-- Contenedor principal del formulario de registro -->
-    <form id="form" [formGroup]="miFormulario" (ngSubmit)="enviar()">
+   
+      <form id="form" [formGroup]="miFormulario" (ngSubmit)="enviar(); $event.preventDefault()">
+
       <!-- 'formGroup' vincula este formulario al objeto reactivo 'miFormulario' -->
       <!-- '(ngSubmit)="enviar()"' ejecuta la función 'enviar()' cuando el formulario es enviado -->
       <!-- 'class="custom-form"' aplica estilos personalizados al formulario -->
@@ -101,12 +103,12 @@
             </div>
 
             <!-- Botón de Registro -->
-            <div id="submit-button-cvr">
-              <button id="submit-button" type="submit">Registrarse</button>
+            <div class="submit-button-cvr">
+              <button class="submit-button" type="submit">Registrarse</button>
             </div>
             <!-- Botón para volver al inicio de sesión -->
-            <div id="submit-button-cvr">
-              <button id="submit-button" routerLink="/login">Login</button>
+            <div class="submit-button-cvr">
+              <button class="submit-button" routerLink="/login">Login</button>
             </div>
 
           </div>
